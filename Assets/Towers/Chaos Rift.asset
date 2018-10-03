@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
+  m_Name: Chaos Rift
+  m_EditorClassIdentifier: 
+  id: d208f1e5462fa284ab04f6906ab1f295
+  TowerName: Chaos Rift
+  Damage:
+    BaseValue: 5
+  FireRate:
+    BaseValue: 1
+  Range:
+    BaseValue: 50
+  PowerCooldown:
+    BaseValue: 0
+  ProcChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  prefab: {fileID: 1146754894129762, guid: 710b5e6152002194aa3214a0d6232666, type: 2}
+  targettype: 3
+  TargetTower: {fileID: 0}
+  AestheticMesh: {fileID: 0}
+  TowerBehavior: {fileID: 0}
+  preview: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}

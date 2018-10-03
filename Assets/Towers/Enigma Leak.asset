@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
+  m_Name: Enigma Leak
+  m_EditorClassIdentifier: 
+  id: 4b9887d37e202d049a35f851af1ffb61
+  TowerName: Enigma Leak
+  Damage:
+    BaseValue: 20
+  FireRate:
+    BaseValue: 1
+  Range:
+    BaseValue: 1
+  PowerCooldown:
+    BaseValue: 1
+  ProcChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  prefab: {fileID: 1146754894129762, guid: 0f01bcb120f81d74e915f125a5587dea, type: 2}
+  targettype: 0
+  TargetTower: {fileID: 0}
+  AestheticMesh: {fileID: 0}
+  TowerBehavior: {fileID: 0}
+  preview: {fileID: 0}
