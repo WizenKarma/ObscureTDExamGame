@@ -120,7 +120,7 @@ public class Phase : MonoBehaviour
     }
     #endregion
 
-    private void SetParamaters()
+    protected void SetParamaters()
     {
         //thePlayer = FindObjectOfType<PlayerControllerTutorial4>();
         thePlayer = FindObjectOfType<PlayerControllerScript>();

@@ -82,8 +82,6 @@ public class GameManager : MonoBehaviour
         {
             ChangeBehaviour();
         }
-        
-
     }
 
     public void ChangeBehaviour()
