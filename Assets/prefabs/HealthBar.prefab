@@ -44,6 +44,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   objectToFollow: {fileID: 0}
   enemy: {fileID: 0}
+  deathParticles: {fileID: 0}
 --- !u!114 &114839625357182052
 MonoBehaviour:
   m_ObjectHideFlags: 1

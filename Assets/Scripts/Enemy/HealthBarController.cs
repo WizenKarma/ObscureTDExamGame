@@ -9,12 +9,14 @@ public class HealthBarController : MonoBehaviour {
     #region PRIVATE_VARIABLES
     private Vector2 positionCorrection = new Vector2(0, 100);
     private GameManager gameManager; // reference to GM to tell when it has died
+    private float delayTimer = 3.0f;
     #endregion
     #region PUBLIC_REFERENCES
     public RectTransform targetCanvas;
     public RectTransform healthBar;
     public Transform objectToFollow;
     public Enemy enemy;
+    public ParticleSystem deathParticles;
     #endregion
     #region PUBLIC_METHODS
 
@@ -29,6 +31,7 @@ public class HealthBarController : MonoBehaviour {
         healthBar.gameObject.SetActive(true);
         enemy = objectToFollow.GetComponent<Enemy>();
         enemy.OnHealthChange += OnHealthChanged; //adds the event that will update the healthbar.
+        deathParticles = enemy.GetComponentInChildren<ParticleSystem>();
     }
 
     public void Hide()
@@ -50,11 +53,20 @@ public class HealthBarController : MonoBehaviour {
         float healthFill = enemy.Health.Value/enemy.MaxHealth.Value;
         if (healthFill <= 0)
         {
-            gameManager.numberOfEnemiesActive--; // hey gm i died
-            Destroy(enemy.gameObject);
-            Destroy(this.gameObject);
+            enemy.GetComponent<CharacterController>().enabled = false; // stop the enemy moving and eventually attacking
+            deathParticles.Play();
+            StartCoroutine(DeathAnimation()); // this is to provide provisions for particles and other effects
         }
         healthBar.GetComponent<Image>().fillAmount = healthFill;
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(delayTimer);
+        Debug.Log("enemy died after:" + delayTimer);
+        gameManager.numberOfEnemiesActive--; // hey gm i died
+        Destroy(enemy.gameObject);
+        Destroy(this.gameObject);
     }
 
     #endregion

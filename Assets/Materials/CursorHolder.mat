@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CursorHolder
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 44a39b8dfc72c674eb00b1b455f6fe8e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -59,6 +59,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_20F797F3: 0.1
+    - Vector1_39DF733B: 0.01
+    - Vector1_63F909D7: 30
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -81,6 +84,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_D288A27: {r: 1.605559, g: 0.3651565, b: 0, a: 0}
+    - Color_DD405EA5: {r: 0, g: 5.51438, b: 17.14837, a: 0}
+    - Color_E72D4AC7: {r: 0, g: 1, b: 0.8595505, a: 0}
+    - Vector2_F66DF7C7: {r: 1, g: 3, b: 0, a: 0}
     - _Color: {r: 0.3719634, g: 0.3186632, b: 0.7264151, a: 0.5176471}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
