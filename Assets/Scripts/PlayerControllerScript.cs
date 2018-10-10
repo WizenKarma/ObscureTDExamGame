@@ -343,8 +343,11 @@ public class PlayerControllerScript : MonoBehaviour
     // Testing reset functions
     public void PlayerTowerReset()
     {
-        // reset.
-        spawnButtons.Clear();
+        int removeIndex = 0;
+        // reset
+        pickRandomTowers(5);
+        isBuilding = true;
+        combinesRecognized = false;
     }
 
 

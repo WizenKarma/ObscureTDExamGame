@@ -8,7 +8,7 @@ public class HealthBarController : MonoBehaviour {
 
     #region PRIVATE_VARIABLES
     private Vector2 positionCorrection = new Vector2(0, 100);
-    // private GameManager gameManager; // reference to GM to tell when it has died
+    private GameManager gameManager; // reference to GM to tell when it has died
     #endregion
     #region PUBLIC_REFERENCES
     public RectTransform targetCanvas;
@@ -21,7 +21,7 @@ public class HealthBarController : MonoBehaviour {
 
     public void SetHealthBarData(Transform targetTransform, RectTransform healthBarPanel)
     {
-        // gameManager = FindObjectOfType<GameManager>(); // hey gm i found you
+        gameManager = FindObjectOfType<GameManager>(); // hey gm i found you
         this.targetCanvas = healthBarPanel;
         healthBar = GetComponent<RectTransform>();
         objectToFollow = targetTransform;
@@ -50,7 +50,7 @@ public class HealthBarController : MonoBehaviour {
         float healthFill = enemy.Health.Value/enemy.MaxHealth.Value;
         if (healthFill <= 0)
         {
-            // gameManager.numberOfEnemiesActive--; // hey gm i died
+            gameManager.numberOfEnemiesActive--; // hey gm i died
             Destroy(enemy.gameObject);
             Destroy(this.gameObject);
         }

@@ -56,7 +56,8 @@ public class Phase : MonoBehaviour
         GameObject enemyClone = Instantiate(enemyToSpawn, enemySpawnPoint.transform.position, Quaternion.identity);
         enemyTimer = 0f;
         enemyCounter--;
-        gameManager.numberOfEnemiesActive++; 
+        gameManager.numberOfEnemiesActive++;
+        gameManager.numberOfEnemiesSpawned++;
         // then when an enemy dies it tells the gm to decrease
         // if all the active enemies are dead the wave ends and changes phase
         
@@ -172,7 +173,7 @@ public class Phase : MonoBehaviour
         }
         if (phaseType == PhaseBuilder.PhaseType.Attack)
         {
-            gameManager.numberOfExpectedEnemiesToSpawn = numberOfEnemies;
+            gameManager.numberOfExpectedEnemiesToSpawn = numberOfEnemies * numberOfWaves;
         }
     }
 
