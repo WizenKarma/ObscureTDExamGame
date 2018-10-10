@@ -22,10 +22,18 @@ public class DirectTower : InGameTower {
     void Attack() {
         Collider[] enemiesInRange = Physics.OverlapSphere(this.transform.position, range.Value,targetableLayers);
         foreach (Collider c in Targets(this.transform, targettype, enemiesInRange, 1)) {
-            if (c.gameObject.GetComponent<Enemy>() as Enemy) {
-                c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value,Keith.EnemyStats.StatModType.Flat));
-                c.gameObject.GetComponent<Enemy>().updateHealth();
-                print("did some damage");
+            if (c.gameObject.GetComponent<Enemy>() as Enemy)
+            {
+                if (c.gameObject.GetComponent<Enemy>().IsDead == false) // dont want waste attacks on dead
+                {
+                    c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, Keith.EnemyStats.StatModType.Flat));
+                    c.gameObject.GetComponent<Enemy>().updateHealth();
+                    print("did some damage");
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }

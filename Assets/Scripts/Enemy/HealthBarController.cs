@@ -54,6 +54,7 @@ public class HealthBarController : MonoBehaviour {
         if (healthFill <= 0)
         {
             enemy.GetComponent<CharacterController>().enabled = false; // stop the enemy moving and eventually attacking
+            enemy.IsDead = true;
             deathParticles.Play();
             StartCoroutine(DeathAnimation()); // this is to provide provisions for particles and other effects
         }

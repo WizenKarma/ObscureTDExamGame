@@ -30,6 +30,22 @@ public class Enemy : MonoBehaviour {
     private bool flaggedForDoT;
     #endregion
 
+    bool isDead;
+
+    public bool IsDead
+    {
+        get
+        {
+            return isDead;
+        }
+
+        set
+        {
+            isDead = value;
+        }
+    }
+
+
     // Use this for initialization
     void Awake () {
         healthPanelRect = GameObject.FindGameObjectWithTag("PlayerHudCanvas").GetComponent<RectTransform>();

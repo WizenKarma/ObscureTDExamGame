@@ -117,7 +117,7 @@ public class PlayerControllerScript : MonoBehaviour
     {
         OnValidate();
         Cursor.lockState = CursorLockMode.Locked;
-        canBuild = false;
+        
         intialMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
@@ -128,9 +128,10 @@ public class PlayerControllerScript : MonoBehaviour
         ip = FindObjectOfType<itemPlacer>();
         crosshair = GameObject.Find("Cross Hair");
 
-        pickRandomTowers(5);
-        isBuilding = true;
-        combinesRecognized = false;
+        //pickRandomTowers(5);
+        //isBuilding = true;
+        //combinesRecognized = false;
+        //canBuild = false;
     }
 
 
@@ -343,11 +344,16 @@ public class PlayerControllerScript : MonoBehaviour
     // Testing reset functions
     public void PlayerTowerReset()
     {
-        int removeIndex = 0;
+        for (int i = 0; i < spawnButtons.Count; i++)
+        {
+            Destroy(spawnButtons[i].gameObject);
+            Destroy(BuildButtonPrefab.GetComponentInChildren<Button>().gameObject);
+        }
         // reset
-        pickRandomTowers(5);
+        //pickRandomTowers(5);
         isBuilding = true;
         combinesRecognized = false;
+        canBuild = false;
     }
 
 

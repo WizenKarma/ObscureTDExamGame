@@ -168,6 +168,7 @@ public class Phase : MonoBehaviour
 
         if (phaseType == PhaseBuilder.PhaseType.Build)
         {
+            thePlayer.PlayerTowerReset();
             BuildStuff();
             //gameManager.ChangeBehaviour();
         }
@@ -194,10 +195,7 @@ public class Phase : MonoBehaviour
 
     public void Exit()
     {
-        if(phaseType == PhaseBuilder.PhaseType.Build)
-        {
-            thePlayer.PlayerTowerReset();
-        }
+        
         Debug.Log("Leaving current state:" + this.phaseName);
         
     }
