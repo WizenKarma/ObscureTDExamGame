@@ -340,6 +340,14 @@ public class PlayerControllerScript : MonoBehaviour
     }
 
 
+    // Testing reset functions
+    public void PlayerTowerReset()
+    {
+        // reset.
+        spawnButtons.Clear();
+    }
+
+
     #endregion
 
     #region Utility Functions for placement etc.

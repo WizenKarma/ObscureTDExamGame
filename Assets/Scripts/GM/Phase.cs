@@ -155,6 +155,7 @@ public class Phase : MonoBehaviour
         {
             gameManager.currentPhase = PhaseBuilder.PhaseType.Combine;
             thePlayer.ResetTowerCount();
+
         }
     }
     #endregion
@@ -192,6 +193,10 @@ public class Phase : MonoBehaviour
 
     public void Exit()
     {
+        if(phaseType == PhaseBuilder.PhaseType.Build)
+        {
+            thePlayer.PlayerTowerReset();
+        }
         Debug.Log("Leaving current state:" + this.phaseName);
         
     }
