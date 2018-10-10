@@ -20,11 +20,11 @@ public class AoETower : InGameTower
 	// Update is called once per frame
 	void Update ()
     {
-        /*timerVar = Time.deltaTime;
+        timerVar = Time.deltaTime;
 		if (timerVar > fireRate.Value)
         {
             ApplyAoE();
-        }*/
+        }
 	}
 
     // Fn checks if the array from Targets is going to deal damage to an Enemy
