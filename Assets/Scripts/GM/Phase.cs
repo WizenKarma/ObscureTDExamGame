@@ -182,7 +182,7 @@ public class Phase : MonoBehaviour
 
     }
 
-    void ForceChange()
+    protected void ForceChange()
     {
         if (phaseType == PhaseBuilder.PhaseType.Attack)
         {
