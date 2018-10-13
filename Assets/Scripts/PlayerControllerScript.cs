@@ -124,7 +124,7 @@ public class PlayerControllerScript : MonoBehaviour
     void Start()
     {
         OnValidate();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         
         intialMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody>();
