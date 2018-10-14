@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhaseName: Attack 1
   NumberOfEnemies: 1
-  NumberOfWaves: 3
+  NumberOfWaves: 1
   TimeBetweenEnemySpawn: 1
   TimeBetweenWaves: 1
   phaseType: 100

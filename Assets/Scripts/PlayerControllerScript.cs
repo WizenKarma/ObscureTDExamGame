@@ -344,16 +344,22 @@ public class PlayerControllerScript : MonoBehaviour
     // Testing reset functions
     public void PlayerTowerReset()
     {
-        for (int i = 0; i < spawnButtons.Count; i++)
+        foreach (Button b in spawnButtons)
         {
-            Destroy(spawnButtons[i].gameObject);
-            Destroy(BuildButtonPrefab.GetComponentInChildren<Button>().gameObject);
+            Destroy(b.gameObject);
         }
+        spawnButtons.Clear();
+        towersToPlaceThisRound.Clear();
+
         // reset
         //pickRandomTowers(5);
         isBuilding = true;
         combinesRecognized = false;
         canBuild = false;
+        totalWeight = 0;
+        towersDrafted = false;
+        foreach (Possible t in towers)
+            totalWeight += t.weight;
     }
 
 
@@ -449,6 +455,11 @@ public class PlayerControllerScript : MonoBehaviour
                     }
                     SelectCombineTowers();
                     gameManager.newPhase = true; /// prevent premature phase changing
+                    break;
+                }
+            case (PhaseBuilder.PhaseType.Attack):
+                {
+                    
                     break;
                 }
         }

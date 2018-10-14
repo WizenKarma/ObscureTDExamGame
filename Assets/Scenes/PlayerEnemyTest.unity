@@ -345,6 +345,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114033916373874596, guid: e0bd68eacf2c84048b8c39b49d129644,
+        type: 2}
+      propertyPath: phases.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4255653284829034, guid: e0bd68eacf2c84048b8c39b49d129644, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.07439631
@@ -387,6 +392,11 @@ Prefab:
       propertyPath: enemySpawnPoint
       value: 
       objectReference: {fileID: 1106901562}
+    - target: {fileID: 114033916373874596, guid: e0bd68eacf2c84048b8c39b49d129644,
+        type: 2}
+      propertyPath: phases.Array.data[3]
+      value: 
+      objectReference: {fileID: 1802964058}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0bd68eacf2c84048b8c39b49d129644, type: 2}
   m_IsPrefabAsset: 0
@@ -1184,6 +1194,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1062813527178180, guid: 0da694e7a6a478c4881f643d500b2ade,
     type: 2}
   m_PrefabInternal: {fileID: 280870938}
+--- !u!1 &1802964052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1536598340546886, guid: e0bd68eacf2c84048b8c39b49d129644,
+    type: 2}
+  m_PrefabInternal: {fileID: 603342003}
+--- !u!114 &1802964058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802964052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
+  phaseType: 100
+  enemySpawnPoint: {fileID: 1106901562}
 --- !u!1 &1832204675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1144845957221122, guid: dfd50b1cd0908ff4a9ec1bf4871efabc,
