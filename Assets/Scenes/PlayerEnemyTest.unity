@@ -256,12 +256,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIex25G4xSwIAAOMEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMziVjwEDorTWE9pCQCe304ouw1liDLHn0ESAZ/ntXssHGOVl+b3f13u7an4RLU0FmlV5rzp4VA/J9QPyZfBsQGrg3arlCeIQIN6oEq3n2Q+6Fj40QdJLnSpcrtodEGWsQzqkwgJRW1mdLhD4H5NQknJvnh38OLnjKQFrQbdRw8vA4imeL+Xi+GkazXs5w9jCPZ6PZGLl5yHcyE7SsgG35B7RlRtH1OjyFQIkWmxjvJ1NCcNMIJPZcBf8JrYxDexjAOEXDQZqPL4DvC4sv427yJs8N2Eagpucl19i3uir5qWzhK5XUHGpl71Q4uFmvSz5/YYejQOdalb+ut9Z+bMGzwxs9Z9TYTq+78PJetpNHKg50J+BfAfJFrbVykiFptfOpzsB42Sl1c5YUkB3auFprD3TV1+mO2ulegvdTIni588hDXANboUK3Fz4HNM7lNwoO22KaSoh6EX8N/KH77lo1xBPXxiLVXCi9up1y2oeSVeiZN+NsorSEADeaK5BU2PMrlrH9Afa4zrU95on6D6e5vOGu30UvJcBtfBT1qFd1vA3LFOr4DKbYOCu4hFa0J16wT4mSst6vbk+uaVunc5p10vaOs/vVIvOY7R7n8Tin8WQ6HS+GUxZPsmgxiWi0Y3QakbB7XKJPKl5roU17cGrdnkhctOs/Y7DWtArLzjQ9rvlHqTo95zJX20wDyM19CQMab8GPkq0Yxw5twVouw8DJZ0qEyg7A0luhNFhdnaymaVslJRV/V9YjKUnC7yQlF3L5D1BLAwQUAAAICAAAECHsUks6OG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9QzNNNRUEovSizIKAaKGII4pZkpIHa0krlJSpKFuYlRWqKJsampkaWuaYqJcbKBpbFBokFSSqKpgVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHsduRuMUsCAADjBAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHsUks6OG0AAAB4AAAACQAkAAAAAAAAAAAAAACYAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAFADAAAAAA==
+    dataString: UEsDBBQAAAgIAAAQIewxZholQAIAANsEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GNtA0vbWG0B4ITEinF1+EtcYaZMmjj/A1/PeuZIMNmZ4sv7dvtW937RPh0tSQW6VnmrO5YkC+D4g/ky8DQgP3Ri1XCMeIcKMqsJrnP+RG+NgIQSd5oXQ1ZRtIlbEG4YIKA0hpZb1aInQakH0rOLTPo38OznjKQVrQvajHr8k4iobxfXSDJ0lQOZkLWtXAVvwInThOxq0MTyFQorE2Jn4MbK6E4KatjNhDHYyntDYOfWEA4xSdhpp8ESXwTWnxJemLF0VhwLb1aXqYcI0Na7KSn8qWPlNFzbYp7oMKB1fPTcr5J/YhDnShVfXrcmsc+RtsyfPtGz3k1Nhek/vw5LZsJ3dUbOlawN8S5KuaaeUkQ9Jq56XOQDLppbo6S0vIt11cU+sd6OrPY427sZ6D930qeLUOoxs1wEqo0O1nrwGNo/mNBYc1MW0mRH0Rfwy8001/n1rihWtjkWovlL66tXLah5Jp6Jk342yqtATdz1CDpMIelpjH3k/wjvu/6oX6T6a9veUuX8SdJMBdfBTdUUu1u07LlGo3B1MunBVcQtdpT7xio1IlZbNgfUsX2crpguY92cZxdrtb5GnE1t+eRklBR8PxOHl+GLPRMI+ehxGN1oyOIxKWj0v0ScWyKbRtD45NdsklLtrlZzGYaVqHZWea7mb8WCnTRXJZqFWuAeTiJoMBjXfgZ8mmjGN/VmAtl2He5JQRofItsOwanwWj073VNOvcZ6TmH8p6JCNp+I1k5EzO/wBQSwMEFAAACAgAABAh7FJLOjhtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPUMzTTUVBKL0osyCgGihiCOKWZKSB2tJK5SUqShbmJUVqiibGpqZGlrmmKiXGygaWxQaJBUkqiqYFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABAh7DFmGiVAAgAA2wQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABAh7FJLOjhtAAAAeAAAAAkAJAAAAAAAAAAAAAAAjQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABFAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 0
+  showNavGraphs: 1
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   minAreaSize: 0
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
@@ -296,7 +296,7 @@ MonoBehaviour:
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 0
+  showGraphs: 1
 --- !u!4 &407424290
 Transform:
   m_ObjectHideFlags: 0
@@ -438,6 +438,10 @@ Prefab:
     - target: {fileID: 4431269488445224, guid: ebd2920b4d7450748b914a5565f25281, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488792820889618, guid: ebd2920b4d7450748b914a5565f25281, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd2920b4d7450748b914a5565f25281, type: 2}
@@ -818,6 +822,15 @@ Prefab:
       propertyPath: tilePrefab
       value: 
       objectReference: {fileID: 669954734}
+    - target: {fileID: 1032098271606074, guid: 94eef5dc54ec6ba4cb9c1fefa7b20df8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114072294410800196, guid: 94eef5dc54ec6ba4cb9c1fefa7b20df8,
+        type: 2}
+      propertyPath: size
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94eef5dc54ec6ba4cb9c1fefa7b20df8, type: 2}
   m_IsPrefabAsset: 0
