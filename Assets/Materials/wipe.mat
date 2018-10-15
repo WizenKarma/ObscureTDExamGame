@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: glass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Name: wipe
+  m_Shader: {fileID: 4800000, guid: 0ebe969a1053b5d42ab8a256a06eb733, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -54,22 +54,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleCubemap_3C9BF1B6_Cube:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_20F797F3: 0.1
-    - Vector1_39DF733B: 0.01
-    - Vector1_4D508BF6: 10
-    - Vector1_63F909D7: 30
-    - Vector1_68C5C62B: 0
-    - Vector1_971D46E8: 0.01
-    - Vector1_D3EA06BB: 30
+    - Vector1_4D508BF6: 15
     - Vector1_F0A8D687: 0.001
     - _AlphaClip: 0
     - _Blend: 0
@@ -79,10 +69,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -93,12 +82,6 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_57725705: {r: 0, g: 5.145098, b: 16, a: 0}
-    - Color_D288A27: {r: 1.605559, g: 0.3651565, b: 0, a: 0}
-    - Color_DD405EA5: {r: 0, g: 5.51438, b: 17.14837, a: 0}
-    - Color_E72D4AC7: {r: 0, g: 1, b: 0.8595505, a: 0}
-    - Vector2_C05ABFAE: {r: 5, g: 1, b: 0, a: 0}
-    - Vector2_F66DF7C7: {r: 1, g: 3, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
