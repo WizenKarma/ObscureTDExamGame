@@ -402,7 +402,6 @@ public class PlayerControllerScript : MonoBehaviour
                         if (Input.GetMouseButtonDown(0))
                         {
                             ViewTower();
-                            
                         }
                     }
                     else if (canBuild)
@@ -464,7 +463,6 @@ public class PlayerControllerScript : MonoBehaviour
                 }
             case (PhaseBuilder.PhaseType.Attack):
                 {
-                    
                     break;
                 }
         }

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int lagCounter = 0;
     public bool newPhase;
 
+    private bool isGraphRefreshed = false;
 	// Use this for initialization
 	void Awake ()
     {
@@ -39,7 +40,6 @@ public class GameManager : MonoBehaviour
         GameManagerStateMachine.ChangeState(phases[0]);
         currentPhase = GameManagerStateMachine.ReturnCurrentState();
         Debug.Log(GameManagerStateMachine.ReturnCurrentState());
-
     }
 
     #region ATTACK_PHASE_BEHAVIOUR
@@ -78,6 +78,12 @@ public class GameManager : MonoBehaviour
         {
             CheckEnemies();
         }
+        if (currentPhase == PhaseBuilder.PhaseType.Combine && isGraphRefreshed == false)
+        {
+            //recalculate the graph
+            AstarPath.active.Scan();
+            isGraphRefreshed = true;
+        }
         if (Input.GetKeyDown(KeyCode.Return) && newPhase)
         {
             ChangeBehaviour();
@@ -86,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeBehaviour()
     {
+        isGraphRefreshed = false;
         Debug.Log(GameManagerStateMachine.ReturnCurrentState());
         if (counter == phases.Length)
         {
@@ -105,7 +112,6 @@ public class GameManager : MonoBehaviour
         // this is called from the attack phase end
         // this occurs when all enemies are dead
         ChangeBehaviour();
-
     }
 
     //private void Singleton()
