@@ -6,7 +6,8 @@ public class Phase : MonoBehaviour
 {
     protected GameManager gameManager;
 
-    protected PlayerControllerScript thePlayer; //removed for tut
+    //protected PlayerControllerScript thePlayer; //removed for tut
+    protected CameraController thePlayer;
     // protected PlayerControllerTutorial4 thePlayer;
 
     public PhaseBuilder phase;
@@ -124,7 +125,8 @@ public class Phase : MonoBehaviour
     protected void SetParamaters()
     {
         //thePlayer = FindObjectOfType<PlayerControllerTutorial4>();
-        thePlayer = FindObjectOfType<PlayerControllerScript>();
+        //thePlayer = FindObjectOfType<PlayerControllerScript>();
+        thePlayer = FindObjectOfType<CameraController>();
         this.gameManager = FindObjectOfType<GameManager>();
         phaseName = phase.PhaseName;
         numberOfEnemies = phase.NumberOfEnemies;
@@ -168,7 +170,7 @@ public class Phase : MonoBehaviour
 
         if (phaseType == PhaseBuilder.PhaseType.Build)
         {
-            thePlayer.PlayerTowerReset();
+            thePlayer.TowerReset();
             BuildStuff();
             //gameManager.ChangeBehaviour();
         }

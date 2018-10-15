@@ -95,12 +95,9 @@ public class PlayerControllerScript : MonoBehaviour
     float totalWeight;
 
     private int towerAtIndex;
-    #endregion
-
-    /// <summary>
-    ///  Testing this value
-    /// </summary>
     public int towerCounter = 0;
+    #endregion
+    
 
     private void OnValidate()
     {

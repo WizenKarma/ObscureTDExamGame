@@ -92,7 +92,7 @@ public class AttackPhaseProto : Phase
     protected void SetParamaters()
     {
         //thePlayer = FindObjectOfType<PlayerControllerTutorial4>();
-        thePlayer = FindObjectOfType<PlayerControllerScript>();
+        //thePlayer = FindObjectOfType<PlayerControllerScript>();
         this.gameManager = FindObjectOfType<GameManager>();
         phaseName = thisPhase.PhaseName;
         numberOfEnemies = thisPhase.NumberOfEnemies;
