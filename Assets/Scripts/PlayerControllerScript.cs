@@ -112,11 +112,19 @@ public class PlayerControllerScript : MonoBehaviour
         Inventory = this.GetComponent<SpawnedTowers>();
     }
 
+    public List<Combiner> possibleRecipes() {
+        return recipes;
+    }
+    public List<Possible> possibleTowers() {
+        return towers;
+    }
+
+
     // Use this for initialization
     void Start()
     {
         OnValidate();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         
         intialMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody>();

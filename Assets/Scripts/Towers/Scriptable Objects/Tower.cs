@@ -25,6 +25,9 @@ public class Tower : ScriptableObject {
     public MonoBehaviour TowerBehavior;
     public Sprite preview;
 
+    [TextAreaAttribute(15,20)]
+    public string Description;
+
     private void OnValidate() {
         string path = AssetDatabase.GetAssetPath(this);
         id = AssetDatabase.AssetPathToGUID(path);
