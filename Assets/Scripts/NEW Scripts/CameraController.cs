@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     #region CAMERA_VARS
     private Camera cam;
     private Transform camTransform;
+    private float MIN_Y = -90.0f;
+    private float MAX_Y = 90.0f;
     #endregion
 
     #region UI_VISUAl_VARS
@@ -88,6 +90,7 @@ public class CameraController : MonoBehaviour
             mouseX += Input.GetAxisRaw("Mouse X");
             mouseY -= Input.GetAxisRaw("Mouse Y");
             float angle = Mathf.Atan2(mouseY, mouseX) * Mathf.Rad2Deg;
+            mouseY = Mathf.Clamp(mouseY, MIN_Y, MAX_Y);
             Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
             transform.rotation = rotation;
             transform.forward = pivot.transform.forward;
@@ -544,6 +547,7 @@ public class CameraController : MonoBehaviour
     }
     #endregion
 
+    #region AUX_FUNCTIONS
     private void ToggleCrossHair(bool inRange)
     {
         if (inRange)
@@ -555,6 +559,7 @@ public class CameraController : MonoBehaviour
             crosshair.SetActive(inRange);
         }
     }
+    #endregion
 
     #region UNITY_FUNCTIONS
     private void OnValidate()
