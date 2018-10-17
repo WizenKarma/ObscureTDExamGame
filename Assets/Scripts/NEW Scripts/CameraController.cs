@@ -295,14 +295,16 @@ public class CameraController : MonoBehaviour
     {
         if (RoundInventory.CountTowers() >= 5)
         {
-            RaycastHit hitInfo;
-            if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
-            {
-                if (hitInfo.collider.tag == "Tower")
-                {
-                    Inventory.AddTowers(RoundInventory.SaveTower(hitInfo.collider.gameObject));
-                }
-            }
+            /*   RaycastHit hitInfo;
+               if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
+               {
+                   if (hitInfo.collider.tag == "Tower")
+                   {
+                       Inventory.AddTowers(RoundInventory.SaveTower(hitInfo.collider.gameObject));
+                   }
+               }*/
+            Inventory.AddTowers(RoundInventory.SaveTower(SelectedTower));
+            RoundInventory.RemoveTower(SelectedTower.GetComponent<InGameTower>().tower.ID);
         }
     }
 
@@ -311,6 +313,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     void ViewTower()
     {
+        bool isRoundTower = false;
         RaycastHit hitInfo;
         int index = 1;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
@@ -324,14 +327,30 @@ public class CameraController : MonoBehaviour
                     Destroy(b.gameObject);
                 }
                 spawnButtons.Clear();
-                Button button = Instantiate(BuildButtonPrefab, BuildButtonParent);
-                button.GetComponentInChildren<Image>().sprite = hitInfo.collider.GetComponent<InGameTower>().tower.preview;
-                button.GetComponentInChildren<Text>().text = "Keep";
-                spawnButtons.Add(button);
-                TowersOnButtons[0] = hitInfo.collider.GetComponent<InGameTower>().tower;
+                isRoundTower = RoundInventory.ContainsThisTower(hitInfo.collider.gameObject.GetComponent<InGameTower>().tower);
+                if (isRoundTower)
+                {
+                    Button button = Instantiate(BuildButtonPrefab, BuildButtonParent);
+                    button.GetComponentInChildren<Image>().sprite = hitInfo.collider.GetComponent<InGameTower>().tower.preview;
+                    button.GetComponentInChildren<Text>().text = "Keep";
+                    spawnButtons.Add(button);
+                    TowersOnButtons[0] = hitInfo.collider.GetComponent<InGameTower>().tower;
+                }
+                else {
+                    Button btn = Instantiate(BuildButtonPrefab, BuildButtonParent);
+                    btn.interactable = false;
+                    spawnButtons.Add(btn);
+                }
+
+                SpawnedTowers inventoryToUse;
+                if (isRoundTower)
+                    inventoryToUse = RoundInventory;
+                else
+                    inventoryToUse = Inventory;
+
                 foreach (Combiner c in recipes)
                 {
-                    if (c.CanCraft(RoundInventory))
+                    if (c.CanCraft(inventoryToUse))
                     {
                         foreach (NumberOfTowers comp in c.components)
                         {
@@ -383,7 +402,7 @@ public class CameraController : MonoBehaviour
                 TowerToBuild = TowersOnButtons[i];
                 foreach (Combiner c in recipes)
                 {
-                    if (c.output[0].Tower.name == TowerToBuild.name)
+                    if (c.output[0].Tower.ID == TowerToBuild.ID)
                     {
                         c.Craft(RoundInventory); //crafts the tower, (which only means adding it to the inventory, it must be instantiated too
                         GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position, Quaternion.identity); //where the tower is instantiated
@@ -434,9 +453,9 @@ public class CameraController : MonoBehaviour
     public void ResetTowerCount()
     {
         // need to discuss how it works
-        //towersDrafted = false;
-        //canBuild = true;
-        //isBuilding = false;
+        // towersDrafted = false;
+        // canBuild = true;
+        // isBuilding = false;
         towerCounter = 0;
     }
     #endregion
