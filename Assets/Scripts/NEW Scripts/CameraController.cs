@@ -375,6 +375,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown("" + 1))
         {
             selectTower();
+            gameManager.ChangeBehaviour();
         }
         for (int i = 2; i <= 5; ++i)
         {
@@ -502,7 +503,7 @@ public class CameraController : MonoBehaviour
                 }
             case (PhaseBuilder.PhaseType.Combine):
                 {
-
+                    gameManager.newPhase = true; /// prevent premature phase changing
                     if (!combinesRecognized)
                     {
                         print("combining now");
@@ -529,7 +530,7 @@ public class CameraController : MonoBehaviour
                         ViewTower();
                     }
                     SelectCombineTowers();
-                    gameManager.newPhase = true; /// prevent premature phase changing
+                    
                     break;
                 }
             case (PhaseBuilder.PhaseType.Attack):
