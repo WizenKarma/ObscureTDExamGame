@@ -162,7 +162,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 68150514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1292,6 +1292,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1249566978}
+    - target: {fileID: 1293461847473312, guid: dfd50b1cd0908ff4a9ec1bf4871efabc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd50b1cd0908ff4a9ec1bf4871efabc, type: 2}
   m_IsPrefabAsset: 0
@@ -1460,6 +1464,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760551460006372, guid: a2c8dabd997751a4495a3e94ab8ca6cd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c8dabd997751a4495a3e94ab8ca6cd, type: 2}
