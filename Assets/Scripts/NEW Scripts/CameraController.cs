@@ -248,6 +248,12 @@ public class CameraController : MonoBehaviour
 
     private Tower SelectTower(bool canBuild, int keyPressed)
     {
+        if (towersToPlaceThisRound[keyPressed].prefab== null)
+        {
+            print("The tower should be empty");
+            return null;
+        }
+
         RaycastHit hitInfo;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
         {
@@ -273,6 +279,15 @@ public class CameraController : MonoBehaviour
 
     bool build(Vector3 pos, Tower towerToBuild)
     {
+        RaycastHit hitInfo;
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
+        {
+            print("We hit a " + hitInfo.collider.tag);
+            if (hitInfo.collider.tag != "Ground")
+                return false;
+        }
+
+
         if (towerToBuild != null)
         {
             GameObject tow = Instantiate(towerToBuild.prefab, pos, Quaternion.identity); //where the tower is instantiated
@@ -384,7 +399,10 @@ public class CameraController : MonoBehaviour
             if (Input.GetKeyDown("" + i))
             {
                 TowerToBuild = SelectTower(true, i - 1); // loads the currently selected tower as the one that will now be built
-                canBuild = true;
+                if (TowerToBuild != null)
+                {
+                    canBuild = true;
+                }
             }
         }
     }
@@ -404,6 +422,7 @@ public class CameraController : MonoBehaviour
             if (Input.GetKeyDown("" + 1))
             {
                 selectTower();
+                ViewTower();
             }
             for (int i = 2; i <= 5; ++i)
             {
@@ -430,6 +449,7 @@ public class CameraController : MonoBehaviour
                             Inventory.AddTowers(inventoryToUse.SaveTower(tow.gameObject));
                         }
                     }
+                    ViewTower();
                 }
             }
         }
@@ -499,8 +519,7 @@ public class CameraController : MonoBehaviour
                         SelectDraftTowers();
                         if (Input.GetMouseButtonDown(0))
                         {
-                            ViewTower();
-
+                            //ViewTower();
                         }
                     }
                     else if (canBuild)
