@@ -550,7 +550,7 @@ public class CameraController : MonoBehaviour
                 }
             case (PhaseBuilder.PhaseType.Combine):
                 {
-
+                    gameManager.newPhase = true; /// prevent premature phase changing
                     if (!combinesRecognized)
                     {
                         print("combining now");
@@ -577,7 +577,7 @@ public class CameraController : MonoBehaviour
                         ViewTower();
                     }
                     SelectCombineTowers();
-                    gameManager.newPhase = true; /// prevent premature phase changing
+                    
                     break;
                 }
             case (PhaseBuilder.PhaseType.Attack):

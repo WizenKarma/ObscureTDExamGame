@@ -20,10 +20,11 @@ public class AoETower : InGameTower
 	// Update is called once per frame
 	void Update ()
     {
-        timerVar = Time.deltaTime;
+        timerVar += Time.deltaTime;
 		if (timerVar > fireRate.Value)
         {
             ApplyAoE();
+            timerVar = 0f;
         }
 	}
 
@@ -53,11 +54,11 @@ public class AoETower : InGameTower
 
         // might need a separate AoE range around the target?
 
-        Collider[] targetsToAoE = Physics.OverlapSphere(targetTransform.position, range.Value, targetableLayers);
+        //Collider[] targetsToAoE = Physics.OverlapSphere(targetTransform.position, range.Value, targetableLayers);
 
         if (thisEffect == EffectType.Damage)
         {
-            foreach (Collider c in targetsToAoE)
+            foreach (Collider c in inRange)
             {
                 if (c.gameObject.GetComponent<Enemy>() as Enemy)
                 {
@@ -67,6 +68,5 @@ public class AoETower : InGameTower
                 }
             }
         }
-        timerVar = 0f;
     }
 }
