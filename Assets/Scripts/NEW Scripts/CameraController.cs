@@ -248,6 +248,12 @@ public class CameraController : MonoBehaviour
 
     private Tower SelectTower(bool canBuild, int keyPressed)
     {
+        if (towersToPlaceThisRound[keyPressed].prefab== null)
+        {
+            print("The tower should be empty");
+            return null;
+        }
+
         RaycastHit hitInfo;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
         {
@@ -273,6 +279,15 @@ public class CameraController : MonoBehaviour
 
     bool build(Vector3 pos, Tower towerToBuild)
     {
+        RaycastHit hitInfo;
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
+        {
+            print("We hit a " + hitInfo.collider.tag);
+            if (hitInfo.collider.tag != "Ground")
+                return false;
+        }
+
+
         if (towerToBuild != null)
         {
             GameObject tow = Instantiate(towerToBuild.prefab, pos, Quaternion.identity); //where the tower is instantiated
@@ -384,46 +399,60 @@ public class CameraController : MonoBehaviour
             if (Input.GetKeyDown("" + i))
             {
                 TowerToBuild = SelectTower(true, i - 1); // loads the currently selected tower as the one that will now be built
-                canBuild = true;
+                if (TowerToBuild != null)
+                {
+                    canBuild = true;
+                }
             }
         }
     }
 
     void SelectCombineTowers()
     {
-        if (Input.GetKeyDown("" + 1))
+        if (SelectedTower != null)
         {
-            selectTower();
-            gameManager.ChangeBehaviour();
-        }
-        for (int i = 2; i <= 5; ++i)
-        {
-            if (Input.GetKeyDown("" + i))
+            bool isRoundTower = RoundInventory.ContainsThisTower(SelectedTower.GetComponent<InGameTower>().tower);
+            SpawnedTowers inventoryToUse;
+
+            if (isRoundTower)
+                inventoryToUse = RoundInventory;
+            else
+                inventoryToUse = Inventory;
+
+            if (Input.GetKeyDown("" + 1))
             {
-                TowerToBuild = TowersOnButtons[i];
-                foreach (Combiner c in recipes)
+                selectTower();
+                ViewTower();
+            }
+            for (int i = 2; i <= 5; ++i)
+            {
+                if (Input.GetKeyDown("" + i))
                 {
-                    if (c.output[0].Tower.ID == TowerToBuild.ID)
+                    TowerToBuild = TowersOnButtons[i];
+                    foreach (Combiner c in recipes)
                     {
-                        c.Craft(RoundInventory); //crafts the tower, (which only means adding it to the inventory, it must be instantiated too
-                        GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position, Quaternion.identity); //where the tower is instantiated
-                        tow.name = TowerToBuild.name; //fix up the name for checking later
-                        Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
-                        Tower SOTower = Instantiate(TowerToBuild);
-                        SOTower.name = TowerToBuild.name;
-                        SOTower.TargetTower = tow;
-                        SOTower.name = TowerToBuild.name;
-                        tow.GetComponent<InGameTower>().tower = SOTower;
-                        RoundInventory.AddTower(tow.GetComponent<InGameTower>().tower, tow);
-                        towersToPlaceThisRound[towerAtIndex] = new Tower();
-                        spawnButtons[towerAtIndex].interactable = false;
-                        spawnButtons[towerAtIndex].GetComponentInChildren<Image>().sprite = null;
-                        Inventory.AddTowers(RoundInventory.SaveTower(tow.gameObject));
+                        if (c.output[0].Tower.ID == TowerToBuild.ID)
+                        {
+                            c.Craft(inventoryToUse);
+                            GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position, Quaternion.identity); //where the tower is instantiated
+                            tow.name = TowerToBuild.name; //fix up the name for checking later
+                            Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
+                            Tower SOTower = Instantiate(TowerToBuild);
+                            SOTower.name = TowerToBuild.name;
+                            SOTower.TargetTower = tow;
+                            SOTower.name = TowerToBuild.name;
+                            tow.GetComponent<InGameTower>().tower = SOTower;
+                            inventoryToUse.AddTower(tow.GetComponent<InGameTower>().tower, tow);
+                            towersToPlaceThisRound[towerAtIndex] = new Tower();
+                            spawnButtons[towerAtIndex].interactable = false;
+                            spawnButtons[towerAtIndex].GetComponentInChildren<Image>().sprite = null;
+                            Inventory.AddTowers(inventoryToUse.SaveTower(tow.gameObject));
+                        }
                     }
+                    ViewTower();
                 }
             }
         }
-
     }
 
     public void setBuildTowers(Tower towerToAdd, int index)
@@ -490,8 +519,7 @@ public class CameraController : MonoBehaviour
                         SelectDraftTowers();
                         if (Input.GetMouseButtonDown(0))
                         {
-                            ViewTower();
-
+                            //ViewTower();
                         }
                     }
                     else if (canBuild)
