@@ -290,7 +290,7 @@ public class CameraController : MonoBehaviour
 
         if (towerToBuild != null)
         {
-            GameObject tow = Instantiate(towerToBuild.prefab, pos, Quaternion.identity); //where the tower is instantiated
+            GameObject tow = Instantiate(towerToBuild.prefab, pos + Vector3.up * 0.5f, Quaternion.identity); //where the tower is instantiated
             tow.name = towerToBuild.name; //fix up the name for checking later
             Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity);
             Tower SOTower = Instantiate(towerToBuild);
@@ -436,7 +436,7 @@ public class CameraController : MonoBehaviour
                             c.Craft(inventoryToUse);
                             GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position, Quaternion.identity); //where the tower is instantiated
                             tow.name = TowerToBuild.name; //fix up the name for checking later
-                            Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
+                            //Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
                             Tower SOTower = Instantiate(TowerToBuild);
                             SOTower.name = TowerToBuild.name;
                             SOTower.TargetTower = tow;

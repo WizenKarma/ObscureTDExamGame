@@ -197,7 +197,7 @@ MonoBehaviour:
   speed: 4
   nextWaypointDistance: 0.65
   reachedEndOfPath: 0
-  repathRate: 0.2
+  repathRate: 0.1
   elapsedSinceRepath: 0
 --- !u!143 &143078775581192938
 CharacterController:

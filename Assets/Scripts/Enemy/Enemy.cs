@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour {
         GameObject waypointParent = GameObject.FindGameObjectWithTag("Waypoint");
         waypoints = waypointParent.GetComponentsInChildren<Transform>().ToList();
         waypoints.Remove(waypointParent.transform);
+
         //waypoints.Add(GameObject.FindGameObjectWithTag("Player").transform); dont want to follow the player anymore
         waypointIndex = 0;
 	}

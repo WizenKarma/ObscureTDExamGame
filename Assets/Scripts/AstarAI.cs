@@ -39,8 +39,6 @@ public class AstarAI : MonoBehaviour {
     }
 
     public void OnPathComplete(Path p) {
-        Debug.Log("A path was calculated. Did it fail with an error? " + p.error);
-
         if (!p.error) {
             path = p;
             // Reset the waypoint counter so that we start to move towards the first point in the path
@@ -94,6 +92,8 @@ public class AstarAI : MonoBehaviour {
                     // You can use this to trigger some special code if your game requires that.
                     reachedEndOfPath = true;
                     targetPosition = this.GetComponent<Enemy>().nextWaypoint();
+                    seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
+                    searchingForPath = true;
                     break;
                 }
             }
