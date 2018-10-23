@@ -55,8 +55,12 @@ public class HealthBarController : MonoBehaviour {
         {
             enemy.GetComponent<CharacterController>().enabled = false; // stop the enemy moving and eventually attacking
             enemy.IsDead = true;
-            deathParticles.Play();
-            StartCoroutine(DeathAnimation()); // this is to provide provisions for particles and other effects
+            gameManager.numberOfEnemiesActive--;
+            Destroy(enemy.gameObject);
+            Destroy(this.gameObject);
+
+            //deathParticles.Play();
+            //StartCoroutine(DeathAnimation()); // this is to provide provisions for particles and other effects
         }
         healthBar.GetComponent<Image>().fillAmount = healthFill;
     }
@@ -66,6 +70,7 @@ public class HealthBarController : MonoBehaviour {
         yield return new WaitForSeconds(delayTimer);
         Debug.Log("enemy died after:" + delayTimer);
         gameManager.numberOfEnemiesActive--; // hey gm i died
+        deathParticles.Stop();
         Destroy(enemy.gameObject);
         Destroy(this.gameObject);
     }

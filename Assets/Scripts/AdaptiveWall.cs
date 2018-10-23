@@ -10,8 +10,9 @@ public class AdaptiveWall : MonoBehaviour {
     [SerializeField]
     GameObject corner; 
     [SerializeField]
-    GameObject terminate; 
+    GameObject terminate;
 
+    public float rayLength;
     public GameObject cornerHolder;
     enum Direction { up, down, left, right };
 	// Use this for initialization
@@ -22,22 +23,22 @@ public class AdaptiveWall : MonoBehaviour {
     void behavior(bool sendOut) {
         
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 0.5f, avoid))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength, avoid))
         {
             hit.collider.gameObject.GetComponent<AdaptiveWall>().mutate(Direction.up,sendOut);
             around[0] = sendOut;
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out hit, 0.5f, avoid))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out hit, rayLength, avoid))
         {
             hit.collider.gameObject.GetComponent<AdaptiveWall>().mutate(Direction.down,sendOut);
             around[2] = sendOut;
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f, avoid))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, rayLength, avoid))
         {
             hit.collider.gameObject.GetComponent<AdaptiveWall>().mutate(Direction.left,sendOut);
             around[3] = sendOut;
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.left), out hit, 0.5f, avoid))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.left), out hit, rayLength, avoid))
         {
             hit.collider.gameObject.GetComponent<AdaptiveWall>().mutate(Direction.right,sendOut);
             around[1] = sendOut;
@@ -83,6 +84,9 @@ public class AdaptiveWall : MonoBehaviour {
             
             if ((around[0] && around[2]) || (around[1] && around[3]))
             { // this indicates that it should be a square piece, as it has two vertically opposed walls on either side
+                if (around[0])
+                    this.transform.rotation = Quaternion.Euler(0, 90, 0);
+
                 this.GetComponent<MeshRenderer>().enabled = true;
                 return;
             }
@@ -93,12 +97,12 @@ public class AdaptiveWall : MonoBehaviour {
                 {
                     if (around[0])
                     {
-                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.identity);
+                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0,270,0));
                         //print("corner should be on the bottom left: " + this.name); // This would suggest that the prefab.forward would be facing up
                     }
                     else
                     {
-                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0, 90, 0));
+                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0, 0, 0));
                         //print("corner should be on the top left: " + this.name); // Facing right 90
                     }
 
@@ -107,12 +111,12 @@ public class AdaptiveWall : MonoBehaviour {
                 {
                     if (around[0])
                     {
-                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0, 270, 0));
+                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0, 180, 0));
                         //print("corner should be on the bottom right: " + this.name); // Facing left 90
                     }
                     else
                     {
-                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0, 180, 0));
+                        cornerHolder = Instantiate(corner, this.transform.position, Quaternion.Euler(0, 90, 0));
                         //print("corner should be on the top right: " + this.name); // Facing right/left 180
                     }
                 }
@@ -121,13 +125,13 @@ public class AdaptiveWall : MonoBehaviour {
             // this indicates that it should terminate and is touching only 1 other wall
             this.GetComponent<MeshRenderer>().enabled = false;
             if (around[1])
-                cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 90, 0));
-            else if (around[2])
-                cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 180, 0));
-            else if (around[3])
-                cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 270, 0));
-            else if (around[0])
                 cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 0, 0));
+            else if (around[2])
+                cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 90, 0));
+            else if (around[3])
+                cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 180, 0));
+            else if (around[0])
+                cornerHolder = Instantiate(terminate, this.transform.position, Quaternion.Euler(0, 270, 0));
             return;
         }
         this.GetComponent<MeshRenderer>().enabled = true;
