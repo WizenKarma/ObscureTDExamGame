@@ -277,6 +277,11 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    bool isAcceptable() {
+        GameObject validator = GameObject.FindGameObjectWithTag("PathValidator");
+        return validator.GetComponent<PathValidator>().isValid();
+    }
+
     bool build(Vector3 pos, Tower towerToBuild)
     {
         RaycastHit hitInfo;
@@ -292,7 +297,17 @@ public class CameraController : MonoBehaviour
         {
             GameObject tow = Instantiate(towerToBuild.prefab, pos + Vector3.up * 0.5f, Quaternion.identity); //where the tower is instantiated
             tow.name = towerToBuild.name; //fix up the name for checking later
-            Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity);
+            GameObject tempWall = Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity);
+            //need to check if this is an acceptable placement by verifying that no paths are blocked
+            AstarPath.active.Scan();
+            if(!isAcceptable())
+            {
+                print("you may not build there");//Need to do some kind of communication around this
+                Destroy(tow);
+                Destroy(tempWall);
+                return false;
+            }
+
             Tower SOTower = Instantiate(towerToBuild);
             SOTower.TargetTower = tow;
             SOTower.name = towerToBuild.name;
