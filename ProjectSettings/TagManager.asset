@@ -9,6 +9,7 @@ TagManager:
   - pivot
   - Tower
   - Ground
+  - PathValidator
   layers:
   - Default
   - TransparentFX
