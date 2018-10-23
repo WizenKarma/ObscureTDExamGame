@@ -62,6 +62,19 @@ public class SpawnedTowers: MonoBehaviour, iTowerController {
         return false;
     }
 
+    public bool ContainsThisTower(Tower tower)
+    {
+
+        for (int i = 0; i < spawnedTowers.Count; i++)
+        {
+            if (spawnedTowers[i].tower.TargetTower == tower.TargetTower)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<Tower> GetAllTowers() {
         List<Tower> temp = new List<Tower>();
         foreach (TowerSet ts in spawnedTowers)

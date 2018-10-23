@@ -43,6 +43,7 @@ public class InGameTower : MonoBehaviour {
  }*/
 
     /*----------------------- UTILITY FUNCTIONS FOR ALL TOWERS -----------------------*/
+    #region UTILITY_FUNCTIONS_ALL_TOWERS
 
     public Collider[] Targets(Transform towerTransform, Tower.TargetType type, Collider[] inRange, int count = default(int))
     {
@@ -73,4 +74,9 @@ public class InGameTower : MonoBehaviour {
         return null;
     }
 
+    //protected void RotateToTarget()
+    //{
+    //    Vector3 targetToLookAt = 
+    //}
+    #endregion
 }
