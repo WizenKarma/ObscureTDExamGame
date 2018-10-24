@@ -111,8 +111,12 @@ public class SpawnedTowers: MonoBehaviour, iTowerController {
             if (towerToSave != null && towerToSave != spawnedTowers[i].realTower)
             {
                 //Instantiate(wall, spawnedTowers[i].realTower.transform.position, Quaternion.identity);
-                if(spawnedTowers[i].realTower != null)
-                    Destroy(spawnedTowers[i].realTower.gameObject);
+                if (spawnedTowers[i].realTower != null)
+                {
+                    spawnedTowers[i].realTower.gameObject.GetComponent<Animator>().SetTrigger("Despawn");
+                   // Destroy(spawnedTowers[i].realTower.gameObject);
+                }
+
                 spawnedTowers.Remove(spawnedTowers[i]);
             }
         }
@@ -157,7 +161,8 @@ public class SpawnedTowers: MonoBehaviour, iTowerController {
             if (tower != null && tower.ID == towerID)
             {
                 spawnedTowers.Remove(spawnedTowers[i]);//spawnedTowers[i] = null;
-                Destroy(tower.TargetTower.gameObject);
+                tower.TargetTower.GetComponent<Animator>().SetTrigger("Despawn");
+                //Destroy(tower.TargetTower.gameObject);
                 return tower;
             }
         }

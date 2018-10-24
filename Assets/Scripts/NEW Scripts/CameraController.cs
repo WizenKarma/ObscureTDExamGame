@@ -27,6 +27,8 @@ public class CameraController : MonoBehaviour
 
     public GameManager gameManager;
 
+    private GameObject towerParent;
+
     private grid placementGrid;
     public GameObject preview;
     private GameObject previewTower;
@@ -266,7 +268,10 @@ public class CameraController : MonoBehaviour
                 Destroy(previewTower);
             }
             if (towersToPlaceThisRound[keyPressed].prefab != null)
+            {
                 previewTower = Instantiate(towersToPlaceThisRound[keyPressed].prefab, Vector3.down * 10, Quaternion.identity);
+                previewTower.GetComponent<Animator>().SetTrigger("Preview");
+            }
             return towersToPlaceThisRound[keyPressed];
             // }
         }
@@ -295,9 +300,10 @@ public class CameraController : MonoBehaviour
 
         if (towerToBuild != null)
         {
-            GameObject tow = Instantiate(towerToBuild.prefab, pos + Vector3.up * 0.5f, Quaternion.identity); //where the tower is instantiated
+            GameObject tow = Instantiate(towerToBuild.prefab, pos, Quaternion.identity,towerParent.transform); //where the tower is instantiated
+            tow.GetComponent<Animator>().SetTrigger("Spawn");
             tow.name = towerToBuild.name; //fix up the name for checking later
-            GameObject tempWall = Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity);
+            GameObject tempWall = Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity, towerParent.transform);
             //need to check if this is an acceptable placement by verifying that no paths are blocked
             AstarPath.active.Scan();
             if(!isAcceptable())
@@ -449,8 +455,9 @@ public class CameraController : MonoBehaviour
                         if (c.output[0].Tower.ID == TowerToBuild.ID)
                         {
                             c.Craft(inventoryToUse);
-                            GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position, Quaternion.identity); //where the tower is instantiated
+                            GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position+Vector3.down*0.5f, Quaternion.identity); //where the tower is instantiated
                             tow.name = TowerToBuild.name; //fix up the name for checking later
+                            tow.GetComponent<Animator>().SetTrigger("Spawn");
                             //Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
                             Tower SOTower = Instantiate(TowerToBuild);
                             SOTower.name = TowerToBuild.name;
@@ -579,7 +586,8 @@ public class CameraController : MonoBehaviour
                                     {
                                         if (comp.Tower.ID == t.ID)
                                         {
-                                            t.TargetTower.GetComponent<Light>().enabled = true;
+                                            //t.TargetTower.GetComponent<Light>().enabled = true;
+                                            t.TargetTower.GetComponent<ParticleSystem>().Play();
                                         }
                                     }
                                 }
@@ -633,6 +641,7 @@ public class CameraController : MonoBehaviour
         foreach (Possible t in towers)
             totalWeight += t.weight;
         Inventory = this.GetComponent<SpawnedTowers>();
+        towerParent = GameObject.FindGameObjectWithTag("Tower Parent");
     }
 
     private void Awake()
