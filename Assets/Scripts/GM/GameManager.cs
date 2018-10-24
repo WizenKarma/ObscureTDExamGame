@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
+        phases = GetComponentsInChildren<Phase>();
         this.GameManagerStateMachine = GetComponent<StateMachine>();
         foreach (Phase phase in phases)
         {
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         GameManagerStateMachine.ChangeState(phases[0]);
         currentPhase = GameManagerStateMachine.ReturnCurrentState();
         Debug.Log(GameManagerStateMachine.ReturnCurrentState());
+        
     }
 
     #region ATTACK_PHASE_BEHAVIOUR
