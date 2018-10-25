@@ -32,7 +32,7 @@ public class DirectTower : InGameTower {
                 }
                 else
                 {
-                    break;
+                   continue;
                 }
             }
         }
