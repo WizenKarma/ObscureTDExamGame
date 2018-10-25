@@ -14,11 +14,11 @@ MonoBehaviour:
   id: 4b9887d37e202d049a35f851af1ffb61
   TowerName: Enigma Leak
   Damage:
-    BaseValue: 5
+    BaseValue: 20
   FireRate:
     BaseValue: 1
   Range:
-    BaseValue: 1
+    BaseValue: 3
   PowerCooldown:
     BaseValue: 1
   ProcChance:

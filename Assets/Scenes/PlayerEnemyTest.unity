@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
+  phase: {fileID: 11400000, guid: a8d639b1bbd50cb42ba83116d1083c81, type: 2}
   phaseType: 0
   enemySpawnPoint: {fileID: 1106901562}
 --- !u!114 &35890219
