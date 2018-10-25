@@ -116,7 +116,7 @@ public class CameraController : MonoBehaviour
         #endregion
 
         #region SPECTATE_MOVEMENT
-        if (!isTopDown)
+       /* if (!isTopDown)
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -142,17 +142,17 @@ public class CameraController : MonoBehaviour
             {
                 myRb.velocity = -transform.forward * moveSpeed * Time.deltaTime;
             }
-        }
+        } */
         #endregion
 
         #region TOP_DOWN_MOVEMENT
-        if (isTopDown)
+       /* if (isTopDown)
         {
             Vector3 input = new Vector3();
             input.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
             input.z = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
             myRb.velocity = input;
-        }
+        }*/
         #endregion
     }
     #endregion
@@ -160,7 +160,7 @@ public class CameraController : MonoBehaviour
     #region TOP_DOWN_FUNCTIONALITY 
 
     private void ToggleTopDown()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.T))
         {
             if(!isTopDown)
@@ -171,7 +171,7 @@ public class CameraController : MonoBehaviour
             {
                 ReturnToSpectate();
             }
-        }
+        }*/
     }
 
     private void SnapToTopDown()
