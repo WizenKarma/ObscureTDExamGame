@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour {
     public float dotIntervalTimer;
     public float setDotIntervals;
     public float numberOfIntervals = 1;
+    public float maxNumberOfIntervals;
     bool flaggedForDoT;
     public bool FlaggedForDoT
     {
@@ -117,13 +118,14 @@ public class Enemy : MonoBehaviour {
         damageToTake = damage;
         setDoTDuration = dotDuration;
         setDoTInterval = dotInterval;
+        maxNumberOfIntervals = numberOfIntervals;
     }
 
     void DoTBehavior()
     {
         dotIntervalTimer += Time.deltaTime;
 
-        if (numberOfIntervals < setDotIntervals)
+        if (numberOfIntervals < maxNumberOfIntervals)
         {
             if (dotIntervalTimer > setDoTInterval)
             {

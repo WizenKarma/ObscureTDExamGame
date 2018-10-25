@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[RequireComponent(typeof(SphereCollider))]
 public class DoTTower : InGameTower
 {
     #region DOT_VARS
@@ -35,12 +37,19 @@ public class DoTTower : InGameTower
     private float attackTimer;
     #endregion
 
+    SphereCollider rangeSphere;
+    public bool enemyIsInRange;
 
 
 
     // Use this for initialization
     void Start ()
     {
+        attackTimer = fireRate.Value;
+        rangeSphere = GetComponent<SphereCollider>();
+        rangeSphere.isTrigger = true;
+        rangeSphere.radius = this.range.Value;
+
         damagePerInstance = damage.Value;
         if (thereIsIntialDamage)
         {
@@ -52,15 +61,34 @@ public class DoTTower : InGameTower
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = false;
+        }
+    }
+
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
         attackTimer += Time.deltaTime;
+        if (enemyIsInRange)
+        {
             if (attackTimer > fireRate.Value)
             {
                 AttackDoT();
             }
-
+        }
 	}
 
 

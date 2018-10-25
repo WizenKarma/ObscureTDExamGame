@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 64074062715323152}
   - component: {fileID: 114442537171327684}
   - component: {fileID: 108402137564110154}
+  - component: {fileID: 135887619853640890}
+  - component: {fileID: 135295773459569770}
   m_Layer: 12
   m_Name: Enigma Leak
   m_TagString: Tower
@@ -39,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146754894129762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.0980597, y: 7.4136016e-17, z: 3.3224216}
+  m_LocalPosition: {x: 7.0980597, y: 1.58, z: 3.3224216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -163,7 +165,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 4b9887d37e202d049a35f851af1ffb61, type: 2}
   thereIsIntialDamage: 1
-  intervalBetweenInstances: 0.5
-  damagePerInstance: 0.5
-  damageDuration: 0.5
+  timeBetweenDamage: 1
+  damagePerInstance: 20
+  damageDuration: 5
   numberOfIntervals: 0.5
+--- !u!135 &135295773459569770
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146754894129762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.24, z: 0}
+--- !u!135 &135887619853640890
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146754894129762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0.167793, z: 0}
