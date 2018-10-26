@@ -12,8 +12,8 @@ public class CameraController : MonoBehaviour
     #region CAMERA_VARS
     private Camera cam;
     private Transform camTransform;
-    private float MIN_Y = -90.0f;
-    private float MAX_Y = 90.0f;
+    private float MIN_Y = -89.0f;
+    private float MAX_Y = 89.0f;
     #endregion
 
     #region UI_VISUAl_VARS
@@ -104,7 +104,7 @@ public class CameraController : MonoBehaviour
     private void CameraMovement()
     {
         #region KILL_MOVEMENT
-        if (Input.GetKeyUp(KeyCode.W) |
+        /*if (Input.GetKeyUp(KeyCode.W) |
             Input.GetKeyUp(KeyCode.A) |
             Input.GetKeyUp(KeyCode.D) |
             Input.GetKeyUp(KeyCode.S) |
@@ -112,7 +112,7 @@ public class CameraController : MonoBehaviour
             Input.GetKeyUp(KeyCode.LeftShift))
         {
             myRb.velocity = Vector3.zero;
-        }
+        }*/
         #endregion
 
         #region SPECTATE_MOVEMENT
@@ -515,9 +515,9 @@ public class CameraController : MonoBehaviour
     #region INPUT_FUNCTIONS
     void InputControl()
     {
-        CameraRotation();
-        CameraMovement();
-        ToggleTopDown();
+        //CameraRotation();
+        //CameraMovement();
+        //ToggleTopDown();
         TowerControl();
     }
 
@@ -526,7 +526,7 @@ public class CameraController : MonoBehaviour
         ShowPreview(); //shows the little preview tower, must replace with the hologram version
         if (Input.GetKeyDown(KeyCode.C))
             gameManager.currentPhase = PhaseBuilder.PhaseType.Combine;
-        Cursor.visible = false;
+        //Cursor.visible = false;
         switch (gameManager.currentPhase)
         {
             case (PhaseBuilder.PhaseType.Build):

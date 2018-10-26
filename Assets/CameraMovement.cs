@@ -9,18 +9,63 @@ public class CameraMovement : MonoBehaviour
     public float speedMultiplier;
     public float shiftMultiplier;
     public float snapSpeed;
+    public float mouseScrollMultiplier;
     public GameObject posToSnapTo;
 
     Vector3 previousPos;
     Transform previousTransform;
     Vector3 snapVector;
 
-    
+    #region Rotation Variables
+    private Camera cam;
+    private Transform camTransform;
+    private float MIN_Y = -89.0f;
+    private float MAX_Y = 89.0f;
+    private float mouseX = 0.0f;
+    private float mouseY = 0.0f;
+    private GameObject pivot;
+    private bool cursorOn;
+    #endregion
+
     // Use this for initialization
     void Start()
     {
+        //Cursor Initialization
+        Cursor.visible = false;
+        cursorOn = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         isTopDown = false;
         myRb = this.GetComponent<Rigidbody>();
+        pivot = GameObject.Find("pivot");
+        cam = Camera.main;
+        camTransform = cam.transform;
+    }
+
+    private void CameraRotation()
+    {
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            cursorOn = !cursorOn;
+            Cursor.visible = cursorOn;
+            if (!cursorOn)
+                Cursor.lockState = CursorLockMode.Locked;
+            else
+                Cursor.lockState = CursorLockMode.None;
+        }
+        if (!cursorOn)
+            if (!isTopDown)
+            {
+                mouseX += Input.GetAxisRaw("Mouse X");
+                mouseY -= Input.GetAxisRaw("Mouse Y");
+                float angle = Mathf.Atan2(mouseY, mouseX) * Mathf.Rad2Deg;
+                mouseY = Mathf.Clamp(mouseY, MIN_Y, MAX_Y);
+                Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
+                transform.rotation = rotation;
+                transform.forward = pivot.transform.forward;
+                transform.LookAt(pivot.transform);
+                pivot.transform.forward = transform.forward;
+            }
     }
 
     void viewMode()
@@ -49,22 +94,17 @@ public class CameraMovement : MonoBehaviour
         }
         if (!isTopDown)
         {
-
             myRb.velocity = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("WorldVertical")) * Time.deltaTime * moveSpeed;
-
         }
         else
         {
-            Vector3 input = new Vector3();
-            input.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
-            input.z = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
-            myRb.velocity = (Vector3.forward * Input.GetAxis("Vertical") + Vector3.left * Input.GetAxis("Horizontal")) * Time.deltaTime * moveSpeed;
-
+            myRb.velocity = (Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal") + Vector3.down * Input.GetAxis("Mouse ScrollWheel") * mouseScrollMultiplier) * Time.deltaTime * moveSpeed;
         }
     }
     // Update is called once per frame
     void Update()
     {
+        CameraRotation();
         viewMode();
         move();
     }
