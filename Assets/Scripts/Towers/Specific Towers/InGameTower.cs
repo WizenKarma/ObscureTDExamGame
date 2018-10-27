@@ -74,6 +74,32 @@ public class InGameTower : MonoBehaviour {
         return null;
     }
 
+    // Fn checks if the array from Targets is going to deal damage to an Enemy
+    // Error checking i think?
+    protected Transform TransformOfTarget(Collider[] targetsToCheck)
+    {
+        foreach (Collider c in targetsToCheck)
+        {
+            if (c.gameObject.GetComponent<Enemy>())
+            {
+                return c.gameObject.GetComponent<Enemy>().transform;
+            }
+        }
+        return null;
+    }
+
+    protected void RotateToTarget()
+    {
+        Collider[] inRange = Physics.OverlapSphere(this.transform.position, range.Value, targetableLayers);
+        Transform target = TransformOfTarget(inRange);
+        if (target != null)
+        {
+            //Transform target = inRange[0].GetComponent<Transform>(); // first enemy?
+            Vector3 vecToTarget = target.position - this.transform.position;
+            transform.LookAt(target);
+        }
+    }
+
     //protected void RotateToTarget()
     //{
     //    Vector3 targetToLookAt = 

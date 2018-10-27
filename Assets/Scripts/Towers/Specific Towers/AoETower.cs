@@ -31,7 +31,7 @@ public class AoETower : InGameTower
         
         if (enemyIsInRange)
         {
-            //RotateToTarget();
+            RotateToTarget();
             timerVar += Time.deltaTime;
             if (timerVar > fireRate.Value)
             {
@@ -58,30 +58,9 @@ public class AoETower : InGameTower
         }
     }
 
-    // Fn checks if the array from Targets is going to deal damage to an Enemy
-    // Error checking i think?
-    Transform TransformOfTarget (Collider[] targetsToCheck)
-    {
-        foreach (Collider c in targetsToCheck)
-        {
-            if (c.gameObject.GetComponent<Enemy>())
-            {
-                return c.gameObject.GetComponent<Enemy>().transform;
-            }
-        }
-        return null;
-    }
+    
 
-    //void RotateToTarget()
-    //{
-    //    Collider[] inRange = Physics.OverlapSphere(this.transform.position, range.Value, targetableLayers);
-    //    if (inRange != null)
-    //    {
-    //        Transform target = inRange[0].GetComponent<Transform>(); // first enemy?
-    //        Vector3 vecToTarget = target.position - this.transform.position;
-    //        transform.LookAt(target);
-    //    }
-    //}
+    
 
     // could this be under InGameTowers as an AuxFn for say, a DOT AOE tower or a SLOW AOE tower?
     public void ApplyAoE()
