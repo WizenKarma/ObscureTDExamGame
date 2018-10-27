@@ -18,7 +18,7 @@ MonoBehaviour:
   FireRate:
     BaseValue: 1
   Range:
-    BaseValue: 50
+    BaseValue: 5
   PowerCooldown:
     BaseValue: 0
   ProcChance:

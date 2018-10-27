@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 64309229659746016}
   - component: {fileID: 114915154195689024}
   - component: {fileID: 108197307012455602}
+  - component: {fileID: 135762025693809632}
   m_Layer: 12
   m_Name: Chaos Rift
   m_TagString: Tower
@@ -163,3 +164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: d208f1e5462fa284ab04f6906ab1f295, type: 2}
   thisEffect: 200
+  enemyIsInRange: 0
+--- !u!135 &135762025693809632
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146754894129762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.1265955, z: 0}

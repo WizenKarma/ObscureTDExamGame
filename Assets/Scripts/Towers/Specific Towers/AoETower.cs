@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class AoETower : InGameTower
 {
     public enum EffectType
@@ -12,21 +13,46 @@ public class AoETower : InGameTower
 
     public EffectType thisEffect;
     private float timerVar;
+    SphereCollider rangeSphere;
+    public bool enemyIsInRange;
 
-	// Use this for initialization
-	void Start () {
-	}
+    // Use this for initialization
+    void Start ()
+    {
+        rangeSphere = GetComponent<SphereCollider>();
+        rangeSphere.isTrigger = true;
+        rangeSphere.radius = this.range.Value;
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        timerVar += Time.deltaTime;
-		if (timerVar > fireRate.Value)
+        if (enemyIsInRange)
         {
-            ApplyAoE();
-            timerVar = 0f;
+            timerVar += Time.deltaTime;
+            if (timerVar > fireRate.Value)
+            {
+                ApplyAoE();
+                timerVar = 0f;
+            }
         }
 	}
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = false;
+        }
+    }
 
     // Fn checks if the array from Targets is going to deal damage to an Enemy
     // Error checking i think?

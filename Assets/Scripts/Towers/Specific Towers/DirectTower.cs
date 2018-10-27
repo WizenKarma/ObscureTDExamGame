@@ -6,16 +6,47 @@ using UnityEngine;
 /// This is the regular projectile launching tower, we could add a crit chance using the procChance and powerCooldown
 /// I've not yet implemented any kind of attributes with regards to 'type' or w/e we use, we can do that later using the cool stats system (thx russian)
 /// </summary>
+
+[RequireComponent(typeof(SphereCollider))]
 public class DirectTower : InGameTower {
 
     private float elapsed = 0f;
+    SphereCollider rangeSphere;
+    public bool enemyIsInRange;
+
+    private void Start()
+    {
+        rangeSphere = GetComponent<SphereCollider>();
+        rangeSphere.isTrigger = true;
+        rangeSphere.radius = this.range.Value;
+    }
 
     public void Update()
     {
         elapsed += Time.deltaTime;
-        if (elapsed > fireRate.Value) {
-            Attack();
-            elapsed = 0f;
+        if (enemyIsInRange)
+        {
+            if (elapsed > fireRate.Value)
+            {
+                Attack();
+                elapsed = 0f;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = false;
         }
     }
 
