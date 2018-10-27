@@ -31,7 +31,7 @@ public class AoETower : InGameTower
         
         if (enemyIsInRange)
         {
-            RotateToTarget();
+            //RotateToTarget();
             timerVar += Time.deltaTime;
             if (timerVar > fireRate.Value)
             {
