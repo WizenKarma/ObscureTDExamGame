@@ -15,6 +15,7 @@ public class AoETower : InGameTower
     private float timerVar;
     SphereCollider rangeSphere;
     public bool enemyIsInRange;
+    float rotateSpeed = 10f;
 
     // Use this for initialization
     void Start ()
@@ -27,8 +28,10 @@ public class AoETower : InGameTower
 	// Update is called once per frame
 	void Update ()
     {
+        
         if (enemyIsInRange)
         {
+            RotateToTarget();
             timerVar += Time.deltaTime;
             if (timerVar > fireRate.Value)
             {
@@ -45,6 +48,7 @@ public class AoETower : InGameTower
             enemyIsInRange = true;
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -67,6 +71,17 @@ public class AoETower : InGameTower
         }
         return null;
     }
+
+    //void RotateToTarget()
+    //{
+    //    Collider[] inRange = Physics.OverlapSphere(this.transform.position, range.Value, targetableLayers);
+    //    if (inRange != null)
+    //    {
+    //        Transform target = inRange[0].GetComponent<Transform>(); // first enemy?
+    //        Vector3 vecToTarget = target.position - this.transform.position;
+    //        transform.LookAt(target);
+    //    }
+    //}
 
     // could this be under InGameTowers as an AuxFn for say, a DOT AOE tower or a SLOW AOE tower?
     public void ApplyAoE()

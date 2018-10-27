@@ -77,6 +77,14 @@ public class DoTTower : InGameTower
         }
     }
 
+    void RotateToTarget()
+    {
+        Collider[] inRange = Physics.OverlapSphere(this.transform.position, range.Value, targetableLayers);
+        Transform target = inRange[0].GetComponent<Transform>(); // first enemy?
+        Vector3 vecToTarget = target.position - this.transform.position;
+        transform.LookAt(target);
+    }
+
 
     // Update is called once per frame
     void Update ()
@@ -86,6 +94,7 @@ public class DoTTower : InGameTower
         {
             if (attackTimer > fireRate.Value)
             {
+                RotateToTarget();
                 AttackDoT();
             }
         }
