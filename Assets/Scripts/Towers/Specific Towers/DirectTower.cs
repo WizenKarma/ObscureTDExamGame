@@ -14,6 +14,8 @@ public class DirectTower : InGameTower {
     SphereCollider rangeSphere;
     public bool enemyIsInRange;
 
+    public ParticleSystem directParticleSystem;
+
     private void Start()
     {
         rangeSphere = GetComponent<SphereCollider>();
@@ -26,6 +28,7 @@ public class DirectTower : InGameTower {
         elapsed += Time.deltaTime;
         if (enemyIsInRange)
         {
+            RotateToTarget();
             if (elapsed > fireRate.Value)
             {
                 Attack();
@@ -57,6 +60,7 @@ public class DirectTower : InGameTower {
             {
                 if (c.gameObject.GetComponent<Enemy>().IsDead == false) // dont want waste attacks on dead
                 {
+                    ParticleSystem projectile = Instantiate(directParticleSystem, transform.position, Quaternion.identity) as ParticleSystem;
                     c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, Keith.EnemyStats.StatModType.Flat));
                     c.gameObject.GetComponent<Enemy>().updateHealth();
                     print("did some damage");

@@ -40,11 +40,13 @@ public class DoTTower : InGameTower
     SphereCollider rangeSphere;
     public bool enemyIsInRange;
 
-
+    public ParticleSystem directParticleSystem;
+    private ProjectileParticle projectile;
 
     // Use this for initialization
     void Start ()
     {
+        projectile = directParticleSystem.GetComponent<ProjectileParticle>();
         attackTimer = fireRate.Value;
         rangeSphere = GetComponent<SphereCollider>();
         rangeSphere.isTrigger = true;
@@ -110,6 +112,10 @@ public class DoTTower : InGameTower
                         c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-intialDamage, Keith.EnemyStats.StatModType.Flat));
                         print("did intial damage");
                     }
+
+
+                    ParticleSystem projectile = Instantiate(directParticleSystem, transform.position, Quaternion.identity) as ParticleSystem;
+                    //projectile.GetComponent<ProjectileParticle>().setParms(directParticleSystem, c, 100f);
                     c.gameObject.GetComponent<Enemy>().SetDoTParms(damagePerInstance,damageDuration, timeBetweenDamage,numberOfIntervals);
 
                     c.gameObject.GetComponent<Enemy>().updateHealth();

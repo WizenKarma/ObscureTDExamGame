@@ -15,7 +15,8 @@ public class AoETower : InGameTower
     private float timerVar;
     SphereCollider rangeSphere;
     public bool enemyIsInRange;
-    float rotateSpeed = 10f;
+
+    public ParticleSystem directParticleSystem;
 
     // Use this for initialization
     void Start ()
@@ -82,6 +83,7 @@ public class AoETower : InGameTower
             {
                 if (c.gameObject.GetComponent<Enemy>() as Enemy)
                 {
+                    ParticleSystem projectile = Instantiate(directParticleSystem, transform.position, Quaternion.identity) as ParticleSystem;
                     c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, Keith.EnemyStats.StatModType.Flat));
                     c.gameObject.GetComponent<Enemy>().updateHealth();
                     print("did AoE damage");
