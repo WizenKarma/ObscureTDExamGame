@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     private Transform camTransform;
     private float MIN_Y = -89.0f;
     private float MAX_Y = 89.0f;
+    private bool animating;
     #endregion
 
     #region UI_VISUAl_VARS
@@ -270,7 +271,7 @@ public class CameraController : MonoBehaviour
             if (towersToPlaceThisRound[keyPressed].prefab != null)
             {
                 previewTower = Instantiate(towersToPlaceThisRound[keyPressed].prefab, Vector3.down * 10, Quaternion.identity);
-                previewTower.GetComponent<Animator>().SetTrigger("Preview");
+                if (animating) previewTower.GetComponent<Animator>().SetTrigger("Preview");
             }
             return towersToPlaceThisRound[keyPressed];
             // }
@@ -301,7 +302,7 @@ public class CameraController : MonoBehaviour
         if (towerToBuild != null)
         {
             GameObject tow = Instantiate(towerToBuild.prefab, pos, Quaternion.identity,towerParent.transform); //where the tower is instantiated
-            tow.GetComponent<Animator>().SetTrigger("Spawn");
+            if(animating) tow.GetComponent<Animator>().SetTrigger("Spawn");
             tow.name = towerToBuild.name; //fix up the name for checking later
             GameObject tempWall = Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity, towerParent.transform);
             //need to check if this is an acceptable placement by verifying that no paths are blocked
@@ -457,7 +458,7 @@ public class CameraController : MonoBehaviour
                             c.Craft(inventoryToUse);
                             GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position+Vector3.down*0.5f, Quaternion.identity); //where the tower is instantiated
                             tow.name = TowerToBuild.name; //fix up the name for checking later
-                            tow.GetComponent<Animator>().SetTrigger("Spawn");
+                            if(animating) tow.GetComponent<Animator>().SetTrigger("Spawn");
                             //Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
                             Tower SOTower = Instantiate(TowerToBuild);
                             SOTower.name = TowerToBuild.name;
@@ -658,6 +659,7 @@ public class CameraController : MonoBehaviour
     // reevaluate why we have both start and awake?
     private void Start()
     {
+        animating = false;
         OnValidate();
         ip = FindObjectOfType<itemPlacer>();
     }
