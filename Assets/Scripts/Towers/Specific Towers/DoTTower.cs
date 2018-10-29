@@ -50,6 +50,7 @@ public class DoTTower : InGameTower
     // Use this for initialization
     void Start ()
     {
+        barrelEnd = gameObject.GetComponentInChildren<Transform>();
         attackTimer = fireRate.Value;
         rangeSphere = GetComponent<SphereCollider>();
         rangeSphere.isTrigger = true;
