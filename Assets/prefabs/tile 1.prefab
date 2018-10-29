@@ -84,7 +84,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488792820889618}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 9c4f1609089fa664fa554661fa164b69, type: 3}
 --- !u!65 &65799992509897196
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -114,4 +114,5 @@ MonoBehaviour:
   around: 00000000
   corner: {fileID: 1581904369085294, guid: e990a2f11e57db940bee1afea0908891, type: 2}
   terminate: {fileID: 1503393580201888, guid: 8e7d26d96ce043041856231ad770e0b4, type: 2}
+  rayLength: 0
   cornerHolder: {fileID: 0}

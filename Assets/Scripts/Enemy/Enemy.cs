@@ -54,7 +54,8 @@ public class Enemy : MonoBehaviour {
         GameObject waypointParent = GameObject.FindGameObjectWithTag("Waypoint");
         waypoints = waypointParent.GetComponentsInChildren<Transform>().ToList();
         waypoints.Remove(waypointParent.transform);
-        waypoints.Add(GameObject.FindGameObjectWithTag("Player").transform);
+
+        //waypoints.Add(GameObject.FindGameObjectWithTag("Player").transform); dont want to follow the player anymore
         waypointIndex = 0;
 	}
 	
@@ -71,8 +72,18 @@ public class Enemy : MonoBehaviour {
         if (waypoints.Count-1 > waypointIndex)
         {
             waypointIndex++;
+        } else
+        {
+            reachedEnd();
         }
         return waypoints[waypointIndex];
+    }
+
+    private void reachedEnd()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().health -= 1;
+        GameObject.Find("GameManager").GetComponent<GameManager>().numberOfEnemiesActive -= 1;
+        Destroy(this.gameObject);
     }
 
     private void Update()

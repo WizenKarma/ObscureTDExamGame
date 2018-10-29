@@ -9,6 +9,8 @@ TagManager:
   - pivot
   - Tower
   - Ground
+  - PathValidator
+  - Tower Parent
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Wall
   - GroundEnemy
   - Tower
-  - 
+  - Unscanned
   - 
   - 
   - 

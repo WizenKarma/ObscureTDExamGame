@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Name: Attack 2
   m_EditorClassIdentifier: 
   PhaseName: Attack 2
-  NumberOfEnemies: 50
+  NumberOfEnemies: 5
   NumberOfWaves: 1
-  TimeBetweenEnemySpawn: 0.1
+  TimeBetweenEnemySpawn: 1
   TimeBetweenWaves: 1
   phaseType: 100
-  EnemyToSpawn: {fileID: 100002, guid: 708626bee96056544840754c7e270f7f, type: 3}
+  EnemyToSpawn: {fileID: 1795785541838174, guid: 14ad357dd33c1064ebba243096870305,
+    type: 2}
