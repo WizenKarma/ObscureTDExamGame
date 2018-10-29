@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ProjectileParticle : MonoBehaviour
 {
-    public ParticleSystem particleSystemForTower;
     public Transform enemyToAttack;
     public float playTime;
     public float timer;
@@ -14,10 +13,9 @@ public class ProjectileParticle : MonoBehaviour
     public Vector3 enemyPos;
 
 
-    public void setParms(ParticleSystem particleSystem, Collider enemy, float speed)
+    public void setParms(Collider enemy, float speed)
     {
         enemyToAttack = enemy.gameObject.GetComponent<Transform>();
-        particleSystemForTower = particleSystem;
         particleVelocity = speed;
     }
 
@@ -38,12 +36,13 @@ public class ProjectileParticle : MonoBehaviour
         }
         else
         {
-            Die();
+            //Die();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.GetComponent<Enemy>())
         Die();
     }
 

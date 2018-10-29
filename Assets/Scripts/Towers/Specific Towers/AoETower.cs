@@ -15,12 +15,15 @@ public class AoETower : InGameTower
     private float timerVar;
     SphereCollider rangeSphere;
     public bool enemyIsInRange;
+    private Transform barrelEnd;
 
     public ParticleSystem directParticleSystem;
+    public GameObject bulletPref;
 
     // Use this for initialization
     void Start ()
     {
+        barrelEnd = transform.Find("BarrelEnd");
         rangeSphere = GetComponent<SphereCollider>();
         rangeSphere.isTrigger = true;
         rangeSphere.radius = this.range.Value;
@@ -83,7 +86,10 @@ public class AoETower : InGameTower
             {
                 if (c.gameObject.GetComponent<Enemy>() as Enemy)
                 {
-                    ParticleSystem projectile = Instantiate(directParticleSystem, transform.position, Quaternion.identity) as ParticleSystem;
+                    ParticleSystem muzzleFlash = Instantiate(directParticleSystem, barrelEnd.position, Quaternion.identity) as ParticleSystem;
+                    GameObject bullet = Instantiate(bulletPref, barrelEnd.position, Quaternion.identity) as GameObject;
+                    bullet.GetComponent<ProjectileParticle>().setParms(c, 100f);
+
                     c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, Keith.EnemyStats.StatModType.Flat));
                     c.gameObject.GetComponent<Enemy>().updateHealth();
                     print("did AoE damage");

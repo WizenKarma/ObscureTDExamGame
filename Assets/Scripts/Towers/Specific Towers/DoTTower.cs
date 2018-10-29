@@ -41,12 +41,15 @@ public class DoTTower : InGameTower
     public bool enemyIsInRange;
 
     public ParticleSystem directParticleSystem;
-    private ProjectileParticle projectile;
+
+    private Transform barrelEnd;
+    public GameObject bulletPref;
+    
+
 
     // Use this for initialization
     void Start ()
     {
-        projectile = directParticleSystem.GetComponent<ProjectileParticle>();
         attackTimer = fireRate.Value;
         rangeSphere = GetComponent<SphereCollider>();
         rangeSphere.isTrigger = true;
@@ -113,9 +116,10 @@ public class DoTTower : InGameTower
                         print("did intial damage");
                     }
 
+                    ParticleSystem muzzleFlash = Instantiate(directParticleSystem, barrelEnd.position, Quaternion.identity) as ParticleSystem;
+                    GameObject bullet = Instantiate(bulletPref, barrelEnd.position, Quaternion.identity) as GameObject;
+                    bullet.GetComponent<ProjectileParticle>().setParms(c, 100f);
 
-                    ParticleSystem projectile = Instantiate(directParticleSystem, transform.position, Quaternion.identity) as ParticleSystem;
-                    //projectile.GetComponent<ProjectileParticle>().setParms(directParticleSystem, c, 100f);
                     c.gameObject.GetComponent<Enemy>().SetDoTParms(damagePerInstance,damageDuration, timeBetweenDamage,numberOfIntervals);
 
                     c.gameObject.GetComponent<Enemy>().updateHealth();
