@@ -9,9 +9,9 @@ public class RecipeDisplay : MonoBehaviour
 
 
     List<Combiner> recipes = new List<Combiner>();
-    List<PlayerControllerScript.Possible> towers = new List<PlayerControllerScript.Possible>();
+    List<CameraController.Possible> towers = new List<CameraController.Possible>();
 
-    public PlayerControllerScript player;
+    public CameraController player;
     public GameObject IndividualTowerDisplay;
     public Canvas displayParent;
     public RectTransform ButtonParent;
@@ -28,13 +28,13 @@ public class RecipeDisplay : MonoBehaviour
         recipes = player.possibleRecipes();
         towers = player.possibleTowers();
 
-        foreach (PlayerControllerScript.Possible t in towers)
+        foreach (CameraController.Possible t in towers)
             totalWeight += t.weight;
 
         int entries = recipes.Count + towers.Count;
         ButtonParent.sizeDelta = new Vector2(ButtonParent.sizeDelta.x, entries * TowerListButton.GetComponent<RectTransform>().sizeDelta.y + entries * ButtonParent.GetComponent<VerticalLayoutGroup>().padding.top * 1.5f);
         int indexer = 0;
-        foreach (PlayerControllerScript.Possible p in towers)
+        foreach (CameraController.Possible p in towers)
         {
             int i = indexer;//dirty fix for a strange memory grab that it keeps doing
             Button b = Instantiate(TowerListButton, ButtonParent);

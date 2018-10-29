@@ -11,6 +11,8 @@ public class AdaptiveWall : MonoBehaviour {
     GameObject corner; 
     [SerializeField]
     GameObject terminate;
+    [SerializeField]
+    GameObject junction;
 
     public float rayLength;
     public GameObject cornerHolder;
@@ -81,7 +83,50 @@ public class AdaptiveWall : MonoBehaviour {
         }
         if ((around[0] || around[1] || around[2] || around[3]))
         {
-            
+            for (int i = 0; i<4; i++)
+            {
+                int count = 0;
+                if (!around[i])
+                {
+                    for (int j = 0; j<4; j++)
+                    {
+                        if (j != i)
+                        {
+                            if (around[j])
+                                count++;
+                        }   
+                    }
+                    if (count == 3)
+                    {
+                        this.GetComponent<MeshRenderer>().enabled = false;
+                        //this indicates that it should be a T junction
+                        switch (i)
+                        {
+                            case 0:
+                                {
+                                    cornerHolder = Instantiate(junction, this.transform.position, Quaternion.Euler(0, 90, 0));
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    cornerHolder = Instantiate(junction, this.transform.position, Quaternion.Euler(0, 180, 0));
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    cornerHolder = Instantiate(junction, this.transform.position, Quaternion.Euler(0, 270, 0));
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    cornerHolder = Instantiate(junction, this.transform.position, Quaternion.Euler(0, 0, 0));
+                                    break;
+                                }
+                        }
+                        return;   
+                    }
+                }
+            }
             if ((around[0] && around[2]) || (around[1] && around[3]))
             { // this indicates that it should be a square piece, as it has two vertically opposed walls on either side
                 if (around[0])

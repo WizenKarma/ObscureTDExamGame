@@ -10,6 +10,7 @@ TagManager:
   - Tower
   - Ground
   - PathValidator
+  - Tower Parent
   layers:
   - Default
   - TransparentFX

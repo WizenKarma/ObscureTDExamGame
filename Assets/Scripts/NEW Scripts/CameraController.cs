@@ -12,8 +12,9 @@ public class CameraController : MonoBehaviour
     #region CAMERA_VARS
     private Camera cam;
     private Transform camTransform;
-    private float MIN_Y = -90.0f;
-    private float MAX_Y = 90.0f;
+    private float MIN_Y = -89.0f;
+    private float MAX_Y = 89.0f;
+    private bool animating;
     #endregion
 
     #region UI_VISUAl_VARS
@@ -26,6 +27,8 @@ public class CameraController : MonoBehaviour
     private itemPlacer ip;
 
     public GameManager gameManager;
+
+    private GameObject towerParent;
 
     private grid placementGrid;
     public GameObject preview;
@@ -102,7 +105,7 @@ public class CameraController : MonoBehaviour
     private void CameraMovement()
     {
         #region KILL_MOVEMENT
-        if (Input.GetKeyUp(KeyCode.W) |
+        /*if (Input.GetKeyUp(KeyCode.W) |
             Input.GetKeyUp(KeyCode.A) |
             Input.GetKeyUp(KeyCode.D) |
             Input.GetKeyUp(KeyCode.S) |
@@ -110,11 +113,11 @@ public class CameraController : MonoBehaviour
             Input.GetKeyUp(KeyCode.LeftShift))
         {
             myRb.velocity = Vector3.zero;
-        }
+        }*/
         #endregion
 
         #region SPECTATE_MOVEMENT
-        if (!isTopDown)
+       /* if (!isTopDown)
         {
             if (Input.GetKey(KeyCode.Space))
             {
@@ -140,17 +143,17 @@ public class CameraController : MonoBehaviour
             {
                 myRb.velocity = -transform.forward * moveSpeed * Time.deltaTime;
             }
-        }
+        } */
         #endregion
 
         #region TOP_DOWN_MOVEMENT
-        if (isTopDown)
+       /* if (isTopDown)
         {
             Vector3 input = new Vector3();
             input.x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
             input.z = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
             myRb.velocity = input;
-        }
+        }*/
         #endregion
     }
     #endregion
@@ -158,7 +161,7 @@ public class CameraController : MonoBehaviour
     #region TOP_DOWN_FUNCTIONALITY 
 
     private void ToggleTopDown()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.T))
         {
             if(!isTopDown)
@@ -169,7 +172,7 @@ public class CameraController : MonoBehaviour
             {
                 ReturnToSpectate();
             }
-        }
+        }*/
     }
 
     private void SnapToTopDown()
@@ -266,7 +269,10 @@ public class CameraController : MonoBehaviour
                 Destroy(previewTower);
             }
             if (towersToPlaceThisRound[keyPressed].prefab != null)
+            {
                 previewTower = Instantiate(towersToPlaceThisRound[keyPressed].prefab, Vector3.down * 10, Quaternion.identity);
+                if (animating) previewTower.GetComponent<Animator>().SetTrigger("Preview");
+            }
             return towersToPlaceThisRound[keyPressed];
             // }
         }
@@ -295,9 +301,10 @@ public class CameraController : MonoBehaviour
 
         if (towerToBuild != null)
         {
-            GameObject tow = Instantiate(towerToBuild.prefab, pos + Vector3.up * 0.5f, Quaternion.identity); //where the tower is instantiated
+            GameObject tow = Instantiate(towerToBuild.prefab, pos, Quaternion.identity,towerParent.transform); //where the tower is instantiated
+            if(animating) tow.GetComponent<Animator>().SetTrigger("Spawn");
             tow.name = towerToBuild.name; //fix up the name for checking later
-            GameObject tempWall = Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity);
+            GameObject tempWall = Instantiate(wall, pos - Vector3.up * 0.5f, Quaternion.identity, towerParent.transform);
             //need to check if this is an acceptable placement by verifying that no paths are blocked
             AstarPath.active.Scan();
             if(!isAcceptable())
@@ -449,8 +456,9 @@ public class CameraController : MonoBehaviour
                         if (c.output[0].Tower.ID == TowerToBuild.ID)
                         {
                             c.Craft(inventoryToUse);
-                            GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position, Quaternion.identity); //where the tower is instantiated
+                            GameObject tow = Instantiate(TowerToBuild.prefab, SelectedTower.transform.position+Vector3.down*0.5f, Quaternion.identity); //where the tower is instantiated
                             tow.name = TowerToBuild.name; //fix up the name for checking later
+                            if(animating) tow.GetComponent<Animator>().SetTrigger("Spawn");
                             //Instantiate(wall, SelectedTower.transform.position - Vector3.up * 0.5f, Quaternion.identity);
                             Tower SOTower = Instantiate(TowerToBuild);
                             SOTower.name = TowerToBuild.name;
@@ -508,9 +516,9 @@ public class CameraController : MonoBehaviour
     #region INPUT_FUNCTIONS
     void InputControl()
     {
-        CameraRotation();
-        CameraMovement();
-        ToggleTopDown();
+        //CameraRotation();
+        //CameraMovement();
+        //ToggleTopDown();
         TowerControl();
     }
 
@@ -519,7 +527,7 @@ public class CameraController : MonoBehaviour
         ShowPreview(); //shows the little preview tower, must replace with the hologram version
         if (Input.GetKeyDown(KeyCode.C))
             gameManager.currentPhase = PhaseBuilder.PhaseType.Combine;
-        Cursor.visible = false;
+        //Cursor.visible = false;
         switch (gameManager.currentPhase)
         {
             case (PhaseBuilder.PhaseType.Build):
@@ -579,7 +587,8 @@ public class CameraController : MonoBehaviour
                                     {
                                         if (comp.Tower.ID == t.ID)
                                         {
-                                            t.TargetTower.GetComponent<Light>().enabled = true;
+                                            //t.TargetTower.GetComponent<Light>().enabled = true;
+                                            t.TargetTower.GetComponent<ParticleSystem>().Play();
                                         }
                                     }
                                 }
@@ -633,6 +642,7 @@ public class CameraController : MonoBehaviour
         foreach (Possible t in towers)
             totalWeight += t.weight;
         Inventory = this.GetComponent<SpawnedTowers>();
+        towerParent = GameObject.FindGameObjectWithTag("Tower Parent");
     }
 
     private void Awake()
@@ -649,6 +659,7 @@ public class CameraController : MonoBehaviour
     // reevaluate why we have both start and awake?
     private void Start()
     {
+        animating = false;
         OnValidate();
         ip = FindObjectOfType<itemPlacer>();
     }

@@ -36,6 +36,11 @@ public class InGameTower : MonoBehaviour {
             possibleRecipes.Add(combiner);
     }
 
+    public void Kill()
+    {
+        Destroy(this.gameObject);
+    }
+
     /*void OnDrawGizmosSelected()
  {
      Gizmos.color = Color.black;

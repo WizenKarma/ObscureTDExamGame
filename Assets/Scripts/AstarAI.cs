@@ -22,7 +22,7 @@ public class AstarAI : MonoBehaviour {
 
     public float repathRate = 1;
     public float elapsedSinceRepath = 0f;
-
+    public float rotationStep = 1f;
     public void Start() {
         seeker = GetComponent<Seeker>();
         // If you are writing a 2D game you can remove this line
@@ -112,11 +112,14 @@ public class AstarAI : MonoBehaviour {
         Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         // Multiply the direction by our desired speed to get a velocity
         Vector3 velocity = dir * speed * speedFactor;
+        float step = rotationStep * Time.deltaTime;
 
+        Vector3 look = new Vector3 (dir.x, 0f, dir.z);
         // Move the agent using the CharacterController component
         // Note that SimpleMove takes a velocity in meters/second, so we should not multiply by Time.deltaTime
         controller.SimpleMove(velocity);
-
+        Debug.DrawRay(transform.position, look, Color.red);
+        transform.rotation = Quaternion.LookRotation(look);
         // If you are writing a 2D game you may want to remove the CharacterController and instead use e.g transform.Translate
         // transform.position += velocity * Time.deltaTime;
     }
