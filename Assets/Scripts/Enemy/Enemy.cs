@@ -72,8 +72,18 @@ public class Enemy : MonoBehaviour {
         if (waypoints.Count-1 > waypointIndex)
         {
             waypointIndex++;
+        } else
+        {
+            reachedEnd();
         }
         return waypoints[waypointIndex];
+    }
+
+    private void reachedEnd()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().health -= 1;
+        GameObject.Find("GameManager").GetComponent<GameManager>().numberOfEnemiesActive -= 1;
+        Destroy(this.gameObject);
     }
 
     private void Update()

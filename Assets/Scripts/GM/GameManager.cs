@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,15 +23,30 @@ public class GameManager : MonoBehaviour
     public int numberOfExpectedEnemiesToSpawn = 0;
     public int numberOfEnemiesActive = 0; // this is to watch how many enemies are alive
     public int numberOfEnemiesSpawned = 0;
-
+    public int health = 10;
     public int counter = 1;
     public int lagCounter = 0;
     public bool newPhase;
 
+    public GameObject textBoxPrefab;
+    private GameObject displayParent;
+    private TextMeshProUGUI roundDisplay;
+    private TextMeshProUGUI enemiesDisplay;
+    private TextMeshProUGUI phaseDisplay;
+    private TextMeshProUGUI healthDisplay;
+
     private bool isGraphRefreshed = false;
+    private int round = 0;
 	// Use this for initialization
 	void Awake ()
     {
+        //UI initialization
+        displayParent = GameObject.Find("Round Info");
+        roundDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
+        enemiesDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
+        phaseDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
+        healthDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
+
         phases = GetComponentsInChildren<Phase>();
         this.GameManagerStateMachine = GetComponent<StateMachine>();
         foreach (Phase phase in phases)
@@ -89,7 +105,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)) // removed newPhase for testing purpose rn
         {
             ChangeBehaviour();
+            
         }
+
+        roundDisplay.text = "Round : " + round + "/" + numberOfRounds;
+        enemiesDisplay.text = "Enemies : " + numberOfEnemiesActive;
+        phaseDisplay.text = "Phase : " + currentPhase.ToString();
+        healthDisplay.text = "Lives : " + health;
     }
 
     public void ChangeBehaviour()
@@ -107,6 +129,8 @@ public class GameManager : MonoBehaviour
         GameManagerStateMachine.ChangeState(phases[counter]);
         counter++;
         currentPhase = GameManagerStateMachine.ReturnCurrentState();
+        if (currentPhase == PhaseBuilder.PhaseType.Build)
+            round += 1;
     }
 
     public void EndOfAttackPhase()

@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 114054580456099356}
   - component: {fileID: 143078775581192938}
   - component: {fileID: 114146775968861410}
-  - component: {fileID: 95035917601794258}
   m_Layer: 11
   m_Name: EnemyAI
   m_TagString: Untagged
@@ -132,24 +131,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95035917601794258
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1795785541838174}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 385ef4f9c185b8642bf335c8afd89bfa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114054580456099356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
   speed: 4
-  nextWaypointDistance: 0.65
+  nextWaypointDistance: 0.9
   reachedEndOfPath: 0
   repathRate: 0.1
   elapsedSinceRepath: 0
