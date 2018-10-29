@@ -169,6 +169,8 @@ MonoBehaviour:
   damageDuration: 5
   numberOfIntervals: 0.5
   enemyIsInRange: 0
+  directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
+    type: 2}
 --- !u!135 &135295773459569770
 SphereCollider:
   m_ObjectHideFlags: 1

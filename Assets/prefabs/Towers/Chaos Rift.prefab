@@ -165,6 +165,8 @@ MonoBehaviour:
   tower: {fileID: 11400000, guid: d208f1e5462fa284ab04f6906ab1f295, type: 2}
   thisEffect: 200
   enemyIsInRange: 0
+  directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
+    type: 2}
 --- !u!135 &135762025693809632
 SphereCollider:
   m_ObjectHideFlags: 1
