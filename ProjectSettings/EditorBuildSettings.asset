@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerEnemyTest.unity
     guid: e7aecd1d35ddb034f9793ca0a840cc55
+  - enabled: 1
+    path: Assets/Scenes/Beta Build/Menu.unity
+    guid: a059424e1bf3c764f966ca5a8fb55eb0
+  - enabled: 1
+    path: Assets/Scenes/Beta Build/Controls.unity
+    guid: d79e112633011be4cacfe4a5e1119548
+  - enabled: 1
+    path: Assets/Scenes/Beta Build/Credits.unity
+    guid: 6783025da0bcd2844ac99dcae82d5b5e
   m_configObjects: {}
