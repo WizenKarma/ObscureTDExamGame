@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Reality Stabilizer
   m_EditorClassIdentifier: 
-  id: 384462f4188dd394ca44a7bb7bc0c368
+  id: 25a13063-7f48-42a3-9eca-d6251e3901e6
   TowerName: Reality Stabilizer
   Damage:
-    BaseValue: 1
+    BaseValue: 0.5
   FireRate:
     BaseValue: 1
   Range:
-    BaseValue: 1
+    BaseValue: 3
   PowerCooldown:
     BaseValue: 1
   ProcChance:

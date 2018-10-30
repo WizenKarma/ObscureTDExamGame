@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Recursion Paradox
   m_EditorClassIdentifier: 
-  id: d34db68c260b63f43964fe79e7ca81a1
+  id: c46d3689-ceba-490f-ae1a-80def9fdbc22
   TowerName: Recursion Paradox
   Damage:
-    BaseValue: 1
+    BaseValue: 50
   FireRate:
     BaseValue: 1
   Range:
-    BaseValue: 1
+    BaseValue: 20
   PowerCooldown:
     BaseValue: 1
   ProcChance:

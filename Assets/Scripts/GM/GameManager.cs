@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public Round[] Rounds;
 
-    public int numberOfRounds = 5;
+    public int numberOfRounds = 0;
     public int numberOfExpectedEnemiesToSpawn = 0;
     public int numberOfEnemiesActive = 0; // this is to watch how many enemies are alive
     public int numberOfEnemiesSpawned = 0;
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
+        phases = GetComponentsInChildren<Phase>();
+        numberOfRounds = phases.Length; // rounds?
         //UI initialization
         displayParent = GameObject.Find("Round Info");
         roundDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
         phaseDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
         healthDisplay = Instantiate(textBoxPrefab, displayParent.transform).GetComponent<TextMeshProUGUI>();
 
-        phases = GetComponentsInChildren<Phase>();
+        
         this.GameManagerStateMachine = GetComponent<StateMachine>();
         foreach (Phase phase in phases)
         {

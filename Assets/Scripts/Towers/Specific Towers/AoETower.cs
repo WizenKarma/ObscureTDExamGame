@@ -8,6 +8,7 @@ public class AoETower : InGameTower
     public enum EffectType
     {
         Damage = 200,
+        Slow = 400,
         // other AoE effects?
     };
 
@@ -32,15 +33,17 @@ public class AoETower : InGameTower
 	// Update is called once per frame
 	void Update ()
     {
-        
         if (enemyIsInRange)
         {
-            RotateToTarget();
-            timerVar += Time.deltaTime;
-            if (timerVar > fireRate.Value)
+            if (thisEffect == EffectType.Damage)
             {
-                ApplyAoE();
-                timerVar = 0f;
+                RotateToTarget();
+                timerVar += Time.deltaTime;
+                if (timerVar > fireRate.Value)
+                {
+                    ApplyAoE();
+                    timerVar = 0f;
+                }
             }
         }
 	}
