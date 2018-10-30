@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Enigma Leak
   m_EditorClassIdentifier: 
-  id: 4b9887d37e202d049a35f851af1ffb61
+  id: 00000000000000000000000000000000
   TowerName: Enigma Leak
   Damage:
     BaseValue: 20
