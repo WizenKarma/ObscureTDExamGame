@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class MortarProjectile : MonoBehaviour
 {
-    private float damageRadius = 1f;
+    public float damageRadius = 2f;
     private float damageToDeal;
     private Rigidbody rb;
 
@@ -76,7 +76,7 @@ public class MortarProjectile : MonoBehaviour
             enemyPos = enemyToAttack.position;
             Vector3 targetVec = enemyPos - this.transform.position;
             transform.LookAt(targetVec);
-            targetVec = targetVec.normalized;
+            targetVec.Normalize();
             rb.velocity = targetVec * Time.deltaTime * particleVelocity;
         }
         else
@@ -84,7 +84,7 @@ public class MortarProjectile : MonoBehaviour
             enemyPos = enemyToAttack.position;
             Vector3 targetVec = enemyPos - this.transform.position;
             transform.LookAt(targetVec);
-            targetVec = targetVec.normalized;
+            targetVec.Normalize();
             rb.velocity = new Vector3(targetVec.x , targetVec.y + 1, targetVec.z ) * Time.deltaTime * particleVelocity;
         }
         if(enemyToAttack == null)

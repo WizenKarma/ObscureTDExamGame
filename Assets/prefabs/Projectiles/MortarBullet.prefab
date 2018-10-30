@@ -125,14 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bcb751ca1906347a9b2944693fd453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 0}
-  enemyIsInRange: 0
-  bulletPref: {fileID: 0}
-  muzzleFlashPrefab: {fileID: 0}
-  particleVelocity: 100
+  damageRadius: 1
+  particleVelocity: 300
   enemyToAttack: {fileID: 0}
   enemyPos: {x: 0, y: 0, z: 0}
-  floatTime: 5
+  floatTime: 1
 --- !u!135 &135402800618292092
 SphereCollider:
   m_ObjectHideFlags: 1
