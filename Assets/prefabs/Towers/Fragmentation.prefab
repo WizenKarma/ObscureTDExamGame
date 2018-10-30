@@ -175,14 +175,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: e65459fea1e287948bad640d4d77fac0, type: 2}
-  timeBetweenDamage: 1
-  damagePerInstance: 15
+  timeBetweenDamage: 2
+  damagePerInstance: 25
   damageDuration: 5
   numberOfIntervals: 0
   enemyIsInRange: 0
   muzzleFlashPrefab: {fileID: 1054392701794614, guid: 41e158c85346b16499bf1c7141140b67,
     type: 2}
-  slowSpeed: 0.5
+  slowSpeed: 1
 --- !u!135 &135878592685728582
 SphereCollider:
   m_ObjectHideFlags: 1

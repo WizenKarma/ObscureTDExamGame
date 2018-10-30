@@ -126,6 +126,10 @@ public class DoTTower : InGameTower
                     c.gameObject.GetComponent<Enemy>().updateHealth();
                     print("Marked for DoT");
                 }
+                else
+                {
+                    continue;
+                }
             }
         }
        
