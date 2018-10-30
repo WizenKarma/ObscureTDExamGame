@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
+  phase: {fileID: 11400000, guid: a8d639b1bbd50cb42ba83116d1083c81, type: 2}
   phaseType: 0
   enemySpawnPoint: {fileID: 1106901562}
 --- !u!114 &35890219
@@ -894,6 +894,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
   thisEffect: 200
+  enemyIsInRange: 0
+  directParticleSystem: {fileID: 0}
+  bulletPref: {fileID: 0}
 --- !u!64 &73711222
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -973,7 +976,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &73711227
 ParticleSystemRenderer:
@@ -6265,7 +6268,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407627141
 GameObject:
@@ -6356,7 +6359,7 @@ Transform:
   - {fileID: 1155731253}
   - {fileID: 1243002803}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &409569774
 Prefab:
@@ -7027,7 +7030,7 @@ Prefab:
     - target: {fileID: 224772699230152002, guid: 72beb30e2d84fae4a83b2cfcd9ec44c8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 224772699230152002, guid: 72beb30e2d84fae4a83b2cfcd9ec44c8,
         type: 2}
@@ -7712,7 +7715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1002198478 stripped
 Transform:
@@ -8121,7 +8124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4230351746074338, guid: 7645c81a5cf74c246a665d24d337377a, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1251255638095076, guid: 7645c81a5cf74c246a665d24d337377a, type: 2}
       propertyPath: m_IsActive
@@ -9438,7 +9441,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4391449605284126, guid: 91ae946e20729794a9b25cf7c0b824de, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114345772590361676, guid: 91ae946e20729794a9b25cf7c0b824de,
         type: 2}
@@ -10444,7 +10447,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4220396066697020, guid: 14ad357dd33c1064ebba243096870305, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1795785541838174, guid: 14ad357dd33c1064ebba243096870305, type: 2}
       propertyPath: m_IsActive

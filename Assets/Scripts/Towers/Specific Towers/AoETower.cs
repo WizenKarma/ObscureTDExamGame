@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class AoETower : InGameTower
 {
     public enum EffectType
@@ -12,35 +13,58 @@ public class AoETower : InGameTower
 
     public EffectType thisEffect;
     private float timerVar;
+    SphereCollider rangeSphere;
+    public bool enemyIsInRange;
+    private Transform barrelEnd;
 
-	// Use this for initialization
-	void Start () {
-	}
+    public ParticleSystem directParticleSystem;
+    public GameObject bulletPref;
+
+    // Use this for initialization
+    void Start ()
+    {
+        barrelEnd = transform.Find("BarrelEnd");
+        rangeSphere = GetComponent<SphereCollider>();
+        rangeSphere.isTrigger = true;
+        rangeSphere.radius = this.range.Value;
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        timerVar += Time.deltaTime;
-		if (timerVar > fireRate.Value)
+        
+        if (enemyIsInRange)
         {
-            ApplyAoE();
-            timerVar = 0f;
+            RotateToTarget();
+            timerVar += Time.deltaTime;
+            if (timerVar > fireRate.Value)
+            {
+                ApplyAoE();
+                timerVar = 0f;
+            }
         }
 	}
 
-    // Fn checks if the array from Targets is going to deal damage to an Enemy
-    // Error checking i think?
-    Transform TransformOfTarget (Collider[] targetsToCheck)
+    private void OnTriggerStay(Collider other)
     {
-        foreach (Collider c in targetsToCheck)
+        if (other.gameObject.GetComponent<Enemy>())
         {
-            if (c.gameObject.GetComponent<Enemy>())
-            {
-                return c.gameObject.GetComponent<Enemy>().transform;
-            }
+            enemyIsInRange = true;
         }
-        return null;
     }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = false;
+        }
+    }
+
+    
+
+    
 
     // could this be under InGameTowers as an AuxFn for say, a DOT AOE tower or a SLOW AOE tower?
     public void ApplyAoE()
@@ -62,6 +86,10 @@ public class AoETower : InGameTower
             {
                 if (c.gameObject.GetComponent<Enemy>() as Enemy)
                 {
+                    ParticleSystem muzzleFlash = Instantiate(directParticleSystem, barrelEnd.position, Quaternion.identity) as ParticleSystem;
+                    GameObject bullet = Instantiate(bulletPref, barrelEnd.position, Quaternion.identity) as GameObject;
+                    bullet.GetComponent<ProjectileParticle>().setParms(c, 100f);
+
                     c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, Keith.EnemyStats.StatModType.Flat));
                     c.gameObject.GetComponent<Enemy>().updateHealth();
                     print("did AoE damage");

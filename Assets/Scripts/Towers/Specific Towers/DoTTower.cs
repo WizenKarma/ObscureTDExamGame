@@ -2,41 +2,100 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class DoTTower : InGameTower
 {
-
+    #region DOT_VARS
+    /// <summary>
+    /// The damage inflicted before DoT takes effect.
+    /// </summary>
+    [Tooltip("The damage inflicted before DoT takes effect.")]
     public bool thereIsIntialDamage;
-    public float intervalBetweenInstances; // time between damage
-    public float damagePerInstance; 
+    /// <summary>
+    /// Time in seconds that each tick of Damage is applied.
+    /// </summary>
+    [Tooltip("Time in seconds that each tick of Damage is applied.")]
+    public float timeBetweenDamage; // time between damage
+    /// <summary>
+    /// Is equal to Tower's Damage.Value and is the mount of damage each tick applies. Do not manually set.
+    /// </summary>
+    [Tooltip("Is equal to Tower's Damage.Value and is the mount of damage each tick applies. Do not manually set.")]
+    public float damagePerInstance;
+    /// <summary>
+    /// Duration from start to last instance of damage. 
+    /// </summary>
+    [Tooltip("Duration from start to last instance of damage.")]
     public float damageDuration;
-    public float numberOfIntervals;
+    /// <summary>
+    /// Is equal to Damage Duration / time Between Damage. Do not manually set.
+    /// </summary>
+    [Tooltip("Is equal to Damage Duration / time Between Damage. Do not manually set.")]
+    [SerializeField] private float numberOfIntervals;
 
     private float intialDamage;
 
     private float attackTimer;
+    #endregion
+
+    SphereCollider rangeSphere;
+    public bool enemyIsInRange;
+
+    public ParticleSystem directParticleSystem;
+
+    private Transform barrelEnd;
+    public GameObject bulletPref;
+    
 
 
     // Use this for initialization
     void Start ()
     {
+        barrelEnd = gameObject.GetComponentInChildren<Transform>();
+        attackTimer = fireRate.Value;
+        rangeSphere = GetComponent<SphereCollider>();
+        rangeSphere.isTrigger = true;
+        rangeSphere.radius = this.range.Value;
+
+        damagePerInstance = damage.Value;
         if (thereIsIntialDamage)
         {
             intialDamage = this.damage.Value;
         }
-        if (numberOfIntervals == 0f) // whats the point of this Ced? - Ced
+        if (timeBetweenDamage != 0f) // avoid division by zero
         {
-            numberOfIntervals = damageDuration / intervalBetweenInstances;
+            numberOfIntervals = damageDuration / timeBetweenDamage;
         }
-	}
+    }
 
-
-	
-	// Update is called once per frame
-	void Update () {
-        attackTimer += Time.deltaTime;
-        if (attackTimer > fireRate.Value)
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
         {
-            AttackDoT();
+            enemyIsInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.GetComponent<Enemy>())
+        {
+            enemyIsInRange = false;
+        }
+    }
+
+
+
+    // Update is called once per frame
+    void Update ()
+    {
+        attackTimer += Time.deltaTime;
+        if (enemyIsInRange)
+        {
+            if (attackTimer > fireRate.Value)
+            {
+                RotateToTarget();
+                AttackDoT();
+            }
         }
 	}
 
@@ -50,15 +109,23 @@ public class DoTTower : InGameTower
         {
             if (c.gameObject.GetComponent<Enemy>() as Enemy)
             {
-                if (thereIsIntialDamage)
+                if (c.gameObject.GetComponent<Enemy>().FlaggedForDoT != true)
                 {
-                    c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-intialDamage, Keith.EnemyStats.StatModType.Flat));
-                    print("did intial damage");
+                    if (thereIsIntialDamage)
+                    {
+                        c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-intialDamage, Keith.EnemyStats.StatModType.Flat));
+                        print("did intial damage");
+                    }
+
+                    ParticleSystem muzzleFlash = Instantiate(directParticleSystem, barrelEnd.position, Quaternion.identity) as ParticleSystem;
+                    GameObject bullet = Instantiate(bulletPref, barrelEnd.position, Quaternion.identity) as GameObject;
+                    bullet.GetComponent<ProjectileParticle>().setParms(c, 100f);
+
+                    c.gameObject.GetComponent<Enemy>().SetDoTParms(damagePerInstance,damageDuration, timeBetweenDamage,numberOfIntervals);
+
+                    c.gameObject.GetComponent<Enemy>().updateHealth();
+                    print("Marked for DoT");
                 }
-                c.gameObject.GetComponent<Enemy>().SetDoTParms(damage.Value, damageDuration, intervalBetweenInstances);
-                
-                c.gameObject.GetComponent<Enemy>().updateHealth();
-                print("Marked for DoT");
             }
         }
        

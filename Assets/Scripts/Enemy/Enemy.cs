@@ -22,12 +22,26 @@ public class Enemy : MonoBehaviour {
     public List<Transform> waypoints = new List<Transform>();
 
     #region DoT Variables
-    private float damageToTake;
-    private float setDoTInterval;
-    private float setDoTDuration;
-    private float dotIntervalTimer;
-    private float dotDurationTimer;
-    private bool flaggedForDoT;
+    public float damageToTake;
+    public float setDoTInterval;
+    public float setDoTDuration;
+    public float dotIntervalTimer;
+    public float setDotIntervals;
+    public float numberOfIntervals = 1;
+    public float maxNumberOfIntervals;
+    bool flaggedForDoT;
+    public bool FlaggedForDoT
+    {
+        get
+        {
+            return flaggedForDoT;
+        }
+
+        set
+        {
+            flaggedForDoT = value;
+        }
+    }
     #endregion
 
     bool isDead;
@@ -108,19 +122,20 @@ public class Enemy : MonoBehaviour {
 
     // I think the Enemy should look after itself if is it DoTed
     #region DoT Functions
-    public void SetDoTParms(float damage, float dotDuration, float dotInterval)
+    public void SetDoTParms(float damage, float dotDuration, float dotInterval, float numberOfIntervals)
     {
         flaggedForDoT = true;
         damageToTake = damage;
         setDoTDuration = dotDuration;
         setDoTInterval = dotInterval;
+        maxNumberOfIntervals = numberOfIntervals;
     }
 
     void DoTBehavior()
     {
         dotIntervalTimer += Time.deltaTime;
-        dotDurationTimer += Time.deltaTime;
-        if (dotDurationTimer < setDoTDuration)
+
+        if (numberOfIntervals < maxNumberOfIntervals)
         {
             if (dotIntervalTimer > setDoTInterval)
             {
@@ -130,9 +145,10 @@ public class Enemy : MonoBehaviour {
         else
         {
             // reset
-            dotIntervalTimer = 0f;
-            dotDurationTimer = 0f;
             flaggedForDoT = false;
+            dotIntervalTimer = 0f;
+            setDotIntervals = 1f;
+            
             return;
         }
     }
@@ -143,6 +159,7 @@ public class Enemy : MonoBehaviour {
         GetComponent<Enemy>().Health.AddModifier(new StatModifier(-damageToTake, StatModType.Flat));
         updateHealth();
         dotIntervalTimer = 0f;
+        numberOfIntervals++;
     }
     #endregion
 }
