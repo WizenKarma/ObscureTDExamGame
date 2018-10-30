@@ -62,9 +62,6 @@ public class AoETower : InGameTower
         }
     }
 
-    
-
-    
 
     // could this be under InGameTowers as an AuxFn for say, a DOT AOE tower or a SLOW AOE tower?
     public void ApplyAoE()
