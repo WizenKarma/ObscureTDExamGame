@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 384462f4188dd394ca44a7bb7bc0c368, type: 2}
+  enemyIsInRange: 0
+  bulletPref: {fileID: 0}
+  directParticleSystem: {fileID: 0}
 --- !u!198 &198162107889576982
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Linq;
 using Keith.Towers;
 using UnityEngine.UI;
+using System;
 
 [CreateAssetMenu]
 public class Tower : ScriptableObject {
@@ -29,8 +30,9 @@ public class Tower : ScriptableObject {
     public string Description;
 
     private void OnValidate() {
-        string path = AssetDatabase.GetAssetPath(this);
-        id = AssetDatabase.AssetPathToGUID(path);
+        
+        // string path = AssetDatabase.GetAssetPath(this);
+        id = Guid.NewGuid().ToString(); //AssetDatabase.AssetPathToGUID(path);
     }
 
     public enum TargetType

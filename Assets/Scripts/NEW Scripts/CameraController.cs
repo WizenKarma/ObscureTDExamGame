@@ -445,6 +445,7 @@ public class CameraController : MonoBehaviour
             {
                 selectTower();
                 ViewTower();
+                SelectedTower.GetComponent<ParticleSystem>().Stop();
             }
             for (int i = 2; i <= 5; ++i)
             {
@@ -473,6 +474,7 @@ public class CameraController : MonoBehaviour
                         }
                     }
                     ViewTower();
+                    SelectedTower.GetComponent<ParticleSystem>().Stop();
                 }
             }
         }
@@ -492,7 +494,7 @@ public class CameraController : MonoBehaviour
         spawnButtons.Clear();
         towersToPlaceThisRound.Clear();
 
-        // reset
+        //reset
         //pickRandomTowers(5);
         isBuilding = true;
         combinesRecognized = false;
@@ -601,12 +603,10 @@ public class CameraController : MonoBehaviour
                         ViewTower();
                     }
                     SelectCombineTowers();
-                    
                     break;
                 }
             case (PhaseBuilder.PhaseType.Attack):
                 {
-
                     break;
                 }
         }
@@ -659,7 +659,7 @@ public class CameraController : MonoBehaviour
     // reevaluate why we have both start and awake?
     private void Start()
     {
-        animating = false;
+        animating = true;
         OnValidate();
         ip = FindObjectOfType<itemPlacer>();
     }

@@ -182,6 +182,13 @@ MonoBehaviour:
     type: 2}
   healthPanelRect: {fileID: 0}
   waypoints: []
+  damageToTake: 0
+  setDoTInterval: 0
+  setDoTDuration: 0
+  dotIntervalTimer: 0
+  setDotIntervals: 0
+  numberOfIntervals: 1
+  maxNumberOfIntervals: 0
 --- !u!114 &114424113945174270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
-  speed: 4
+  speed: 2
   nextWaypointDistance: 0.9
   reachedEndOfPath: 0
   repathRate: 0.1
