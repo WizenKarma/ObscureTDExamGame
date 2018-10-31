@@ -51,17 +51,9 @@ public class MortarProjectile : MonoBehaviour
         {
             if (c.gameObject.GetComponent<Enemy>() as Enemy)
             {
-                if (c.gameObject.GetComponent<Enemy>().IsDead == false) // dont want waste attacks on dead
-                {
-
-                    c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damageToDeal, Keith.EnemyStats.StatModType.Flat));
-                    c.gameObject.GetComponent<Enemy>().updateHealth();
-                    print("did some damage");
-                }
-                else
-                {
-                    continue;
-                }
+                c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damageToDeal, Keith.EnemyStats.StatModType.Flat));
+                c.gameObject.GetComponent<Enemy>().updateHealth();
+                print("did some damage");
             }
         }
         Destruct();
