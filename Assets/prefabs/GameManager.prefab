@@ -21,11 +21,33 @@ GameObject:
   - component: {fileID: 4255653284829034}
   - component: {fileID: 114033916373874596}
   - component: {fileID: 114564112098573802}
-  - component: {fileID: 114092516847355306}
-  - component: {fileID: 114427122547269400}
-  - component: {fileID: 114891215394987926}
   m_Layer: 0
   m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1636282355745174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4567067185300192}
+  - component: {fileID: 114984030838388924}
+  - component: {fileID: 114280725813776732}
+  - component: {fileID: 114241756532140798}
+  - component: {fileID: 114504526665333486}
+  - component: {fileID: 114394006447057218}
+  - component: {fileID: 114754484163901318}
+  - component: {fileID: 114653459559211686}
+  - component: {fileID: 114967453470171000}
+  - component: {fileID: 114572498634905136}
+  - component: {fileID: 114962710537046740}
+  m_Layer: 0
+  m_Name: PhaseHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,8 +62,22 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.07439631, y: 0.00006133318, z: 1.499999}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4567067185300192}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4567067185300192
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4255653284829034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114033916373874596
@@ -56,24 +92,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManagerStateMachine: {fileID: 0}
-  phases:
-  - {fileID: 114092516847355306}
-  - {fileID: 114427122547269400}
-  - {fileID: 114891215394987926}
+  phases: []
   currentPhase: 0
   numberOfRounds: 5
   numberOfExpectedEnemiesToSpawn: 0
   numberOfEnemiesActive: 0
   numberOfEnemiesSpawned: 0
+  health: 10
   counter: 1
   lagCounter: 0
   newPhase: 0
---- !u!114 &114092516847355306
+  textBoxPrefab: {fileID: 1659637862736186, guid: 9cafc53cddc435946b50548ec03ddff8,
+    type: 2}
+--- !u!114 &114241756532140798
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536598340546886}
+  m_GameObject: {fileID: 1636282355745174}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
@@ -82,12 +118,40 @@ MonoBehaviour:
   phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
   phaseType: 0
   enemySpawnPoint: {fileID: 0}
---- !u!114 &114427122547269400
+--- !u!114 &114280725813776732
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536598340546886}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: a8d639b1bbd50cb42ba83116d1083c81, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114394006447057218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114504526665333486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
@@ -107,12 +171,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a75cf451ff23441a90d729bd10802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114891215394987926
+--- !u!114 &114572498634905136
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536598340546886}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114653459559211686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114754484163901318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114962710537046740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114967453470171000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
+  phaseType: 0
+  enemySpawnPoint: {fileID: 0}
+--- !u!114 &114984030838388924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636282355745174}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}

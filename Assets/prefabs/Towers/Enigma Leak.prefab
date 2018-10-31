@@ -213,9 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 4b9887d37e202d049a35f851af1ffb61, type: 2}
-  thereIsIntialDamage: 1
-  timeBetweenDamage: 1
-  damagePerInstance: 20
+  thereIsIntialDamage: 0
+  timeBetweenDamage: 2
+  damagePerInstance: 10
   damageDuration: 5
   numberOfIntervals: 0.5
   enemyIsInRange: 0

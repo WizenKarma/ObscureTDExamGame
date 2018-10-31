@@ -58,6 +58,7 @@ public class AdaptiveWall : MonoBehaviour {
             cornerHolder = null;
         }
         Destroy(this.gameObject);
+        print("KEKEKEKE");
     }
 
     void mutate(Direction dir, bool value) {

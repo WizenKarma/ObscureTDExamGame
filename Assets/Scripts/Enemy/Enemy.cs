@@ -44,6 +44,14 @@ public class Enemy : MonoBehaviour {
     }
     #endregion
 
+    #region SLOW_VARS
+    private bool isSlowed; // this relies on directed slow
+    private float slowDuration = 0f; // this relies on directed slow
+    private float slowSpeed = 0f;
+    private float referenceSpeed = 0f;
+    private float moveSpeed = 0f; // this will be a reference to the AstarAI move speed;
+    #endregion
+
     bool isDead;
 
     public bool IsDead
@@ -71,6 +79,9 @@ public class Enemy : MonoBehaviour {
 
         //waypoints.Add(GameObject.FindGameObjectWithTag("Player").transform); dont want to follow the player anymore
         waypointIndex = 0;
+
+        moveSpeed = GetComponent<AstarAI>().speed;
+        referenceSpeed = moveSpeed;
 	}
 	
 	// Update is called once per frame
@@ -110,6 +121,8 @@ public class Enemy : MonoBehaviour {
             healthBarControls.Show();
         else
             healthBarControls.Hide();
+
+        this.GetComponent<AstarAI>().speed = Speed.Value;
     }
 
     void generateHealthBar() {
@@ -160,6 +173,31 @@ public class Enemy : MonoBehaviour {
         updateHealth();
         dotIntervalTimer = 0f;
         numberOfIntervals++;
+    }
+    #endregion
+
+    #region SLOW_FUNCTIONS
+    // for directed
+    public void SetSlowParms(float speed, float duration)
+    {
+        isSlowed = true;
+    }
+
+    // for aoe
+    public void SetSlowParms(float speed)
+    {
+        isSlowed = true;
+ 
+        slowSpeed = speed;
+        GetComponent<AstarAI>().speed = referenceSpeed - (slowSpeed / referenceSpeed); // tried to make it a fraction of its current speed
+        
+    }
+
+    public void ResetSlowParms()
+    {
+        isSlowed = false;
+        slowSpeed = 0f;
+        GetComponent<AstarAI>().speed = referenceSpeed; // here we want to reset the speed of the enemy since its out of range of effect
     }
     #endregion
 }
