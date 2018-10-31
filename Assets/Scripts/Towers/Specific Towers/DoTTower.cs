@@ -109,8 +109,8 @@ public class DoTTower : InGameTower
         {
             if (c.gameObject.GetComponent<Enemy>() as Enemy)
             {
-                if (c.gameObject.GetComponent<Enemy>().FlaggedForDoT != true)
-                {
+                //if (c.gameObject.GetComponent<Enemy>().FlaggedForDoT != true)
+                //{
                     if (thereIsIntialDamage)
                     {
                         c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-intialDamage, Keith.EnemyStats.StatModType.Flat));
@@ -125,11 +125,11 @@ public class DoTTower : InGameTower
 
                     c.gameObject.GetComponent<Enemy>().updateHealth();
                     print("Marked for DoT");
-                }
-                else
-                {
-                    continue;
-                }
+                //}
+                //else
+                //{
+                //    continue;
+                //}
             }
         }
        

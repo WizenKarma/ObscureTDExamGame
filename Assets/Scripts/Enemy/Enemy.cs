@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
     public float setDoTDuration;
     public float dotIntervalTimer;
     public float setDotIntervals;
-    public float numberOfIntervals = 1;
+    public float numberOfIntervals = 0;
     public float maxNumberOfIntervals;
     bool flaggedForDoT;
     public bool FlaggedForDoT
@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+        this.GetComponent<AstarAI>().speed = Speed.Value;
         healthPanelRect = GameObject.FindGameObjectWithTag("PlayerHudCanvas").GetComponent<RectTransform>();
 
         generateHealthBar();
@@ -80,8 +81,8 @@ public class Enemy : MonoBehaviour {
         //waypoints.Add(GameObject.FindGameObjectWithTag("Player").transform); dont want to follow the player anymore
         waypointIndex = 0;
 
-        moveSpeed = GetComponent<AstarAI>().speed;
-        referenceSpeed = moveSpeed;
+
+        referenceSpeed = Speed.Value;
 	}
 	
 	// Update is called once per frame
@@ -122,7 +123,7 @@ public class Enemy : MonoBehaviour {
         else
             healthBarControls.Hide();
 
-        this.GetComponent<AstarAI>().speed = Speed.Value;
+        
     }
 
     void generateHealthBar() {
@@ -160,9 +161,9 @@ public class Enemy : MonoBehaviour {
             // reset
             flaggedForDoT = false;
             dotIntervalTimer = 0f;
-            setDotIntervals = 1f;
-            
-            return;
+            setDotIntervals = 0f;
+            setDoTInterval = 0f;
+            maxNumberOfIntervals = 0f;
         }
     }
 
@@ -187,17 +188,20 @@ public class Enemy : MonoBehaviour {
     public void SetSlowParms(float speed)
     {
         isSlowed = true;
- 
+
         slowSpeed = speed;
-        GetComponent<AstarAI>().speed = referenceSpeed - (slowSpeed / referenceSpeed); // tried to make it a fraction of its current speed
+        Speed.AddModifier(new StatModifier(-slowSpeed, StatModType.Flat));
+
+        GetComponent<AstarAI>().speed = Speed.Value; // tried to make it a fraction of its current speed
         
     }
 
     public void ResetSlowParms()
     {
+        Speed.AddModifier(new StatModifier(slowSpeed, StatModType.Flat));
         isSlowed = false;
         slowSpeed = 0f;
-        GetComponent<AstarAI>().speed = referenceSpeed; // here we want to reset the speed of the enemy since its out of range of effect
+        GetComponent<AstarAI>().speed = Speed.Value; // here we want to reset the speed of the enemy since its out of range of effect
     }
     #endregion
 }

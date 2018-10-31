@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Certainty Rift
   m_EditorClassIdentifier: 
-  id: ef287397-d42b-4683-a883-4a0500081361
+  id: 666853d1-a175-4e15-9a76-d51426afb61e
   TowerName: Certainty Rift
   Damage:
     BaseValue: 8
@@ -32,4 +32,10 @@ MonoBehaviour:
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 7b33bcd3d8fde48418c19ea444942cd5, type: 3}
-  Description: 
+  Description: 'Faste Fire Rate
+
+    Low Damage
+
+    Medium Range
+
+    Single Target'

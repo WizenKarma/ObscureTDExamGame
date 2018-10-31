@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Chaos Rift
   m_EditorClassIdentifier: 
-  id: 8882fa01-6242-4cd7-98ec-24007e56fb2e
+  id: 5e49de23-699c-4cfa-b797-69b89596abcf
   TowerName: Chaos Rift
   Damage:
     BaseValue: 5
@@ -32,4 +32,10 @@ MonoBehaviour:
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 4ff3fedfebc6fe14e92329af9e80b0c2, type: 3}
-  Description: 
+  Description: 'Medium Fire Rate
+
+    Low Damage
+
+    Short Range
+
+    Area of Effect'

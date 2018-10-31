@@ -80,7 +80,7 @@ public class SlowDotTower : InGameTower
         if (other.gameObject.GetComponent<Enemy>())
         {
             enemyIsInRange = true;
-            other.gameObject.GetComponent<Enemy>().SetSlowParms(slowSpeed);
+            //other.gameObject.GetComponent<Enemy>().SetSlowParms(slowSpeed); This should not be here
         }
     }
 

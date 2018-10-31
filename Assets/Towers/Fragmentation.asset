@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Fragmentation
   m_EditorClassIdentifier: 
-  id: 1327d5b1-006f-4820-91fc-59f504b5e9a3
+  id: c540ba69-06eb-45f9-8611-4240d32ab9f2
   TowerName: Fragmentation
   Damage:
     BaseValue: 20
@@ -32,4 +32,14 @@ MonoBehaviour:
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 2dde0345c7e73d84db6e092712c725a7, type: 3}
-  Description: 
+  Description: 'Slow Fire Rate
+
+    High Damage
+
+    Slows enemy in Range
+
+    Damage over time (does not stack)
+
+    Short Range
+
+    Single Target'

@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Enigma Leak
   m_EditorClassIdentifier: 
-  id: 37c66217-8a06-4309-b2b0-60ac5804f688
+  id: 596bcfb0-e695-411b-adfd-6fe7fab5760a
   TowerName: Enigma Leak
   Damage:
-    BaseValue: 15
+    BaseValue: 8
   FireRate:
     BaseValue: 1
   Range:
@@ -32,4 +32,12 @@ MonoBehaviour:
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 9d2c61227a19fe9478996bd971bbd819, type: 3}
-  Description: 
+  Description: 'Moderate Fire Rate
+
+    Low Damage
+
+    Damage over time (does not stack)
+
+    Short Range
+
+    Single Target'

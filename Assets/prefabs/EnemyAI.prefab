@@ -171,7 +171,7 @@ MonoBehaviour:
   Damage:
     BaseValue: 0
   Speed:
-    BaseValue: 1
+    BaseValue: 1.5
   Range:
     BaseValue: 0
   Health:

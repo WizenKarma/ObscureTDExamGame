@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Recursion Paradox
   m_EditorClassIdentifier: 
-  id: 0de99043-c08e-4169-ac47-5561ffbfc6ae
+  id: 5ddb6d2e-cbfc-4ec4-a97c-bf7ad99c05ec
   TowerName: Recursion Paradox
   Damage:
-    BaseValue: 2
+    BaseValue: 3
   FireRate:
     BaseValue: 5
   Range:
-    BaseValue: 20
+    BaseValue: 10
   PowerCooldown:
     BaseValue: 1
   ProcChance:
@@ -32,4 +32,12 @@ MonoBehaviour:
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 4b3be22104a23de45ac1591b8a8cfb47, type: 3}
-  Description: 
+  Description: 'Very Slow Fire Rate
+
+    High Damage
+
+    Splash Damage
+
+    Long Range
+
+    Single Target'

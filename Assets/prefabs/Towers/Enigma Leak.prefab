@@ -213,8 +213,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 4b9887d37e202d049a35f851af1ffb61, type: 2}
+  damage:
+    BaseValue: 0
+  range:
+    BaseValue: 0
+  fireRate:
+    BaseValue: 0
+  cooldown:
+    BaseValue: 0
+  procChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  targettype: 0
   thereIsIntialDamage: 0
-  timeBetweenDamage: 2
+  timeBetweenDamage: 1
   damagePerInstance: 10
   damageDuration: 5
   numberOfIntervals: 0.5

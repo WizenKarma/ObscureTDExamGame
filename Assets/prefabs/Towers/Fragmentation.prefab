@@ -70,9 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146754894129762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-
   m_LocalPosition: {x: 0, y: 0, z: 0}
-
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4119802843980320}
@@ -177,6 +175,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: e65459fea1e287948bad640d4d77fac0, type: 2}
+  damage:
+    BaseValue: 0
+  range:
+    BaseValue: 0
+  fireRate:
+    BaseValue: 0
+  cooldown:
+    BaseValue: 0
+  procChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  targettype: 0
   timeBetweenDamage: 2
   damagePerInstance: 25
   damageDuration: 5
@@ -184,7 +196,7 @@ MonoBehaviour:
   enemyIsInRange: 0
   muzzleFlashPrefab: {fileID: 1054392701794614, guid: 41e158c85346b16499bf1c7141140b67,
     type: 2}
-  slowSpeed: 1
+  slowSpeed: 0.5
 --- !u!135 &135878592685728582
 SphereCollider:
   m_ObjectHideFlags: 1
