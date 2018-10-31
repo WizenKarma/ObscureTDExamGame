@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Chaos Rift
   m_EditorClassIdentifier: 
-  id: d208f1e5462fa284ab04f6906ab1f295
+  id: 8882fa01-6242-4cd7-98ec-24007e56fb2e
   TowerName: Chaos Rift
   Damage:
     BaseValue: 5
   FireRate:
-    BaseValue: 1
+    BaseValue: 1.2
   Range:
-    BaseValue: 5
+    BaseValue: 3
   PowerCooldown:
     BaseValue: 0
   ProcChance:

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4978609752930668}
   - component: {fileID: 198458194795979416}
+  - component: {fileID: 114551179729328592}
   - component: {fileID: 199429786932046820}
   m_Layer: 0
   m_Name: DeathParticles
@@ -34,13 +35,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758368691358656}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.07439631, y: 6.02, z: 1.499999}
+  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 20.830246, y: -0.98945606, z: -40.29475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!114 &114551179729328592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758368691358656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6401e16b7553b2429f5a3374522c242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198458194795979416
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -51,7 +63,7 @@ ParticleSystem:
   lengthInSec: 3
   simulationSpeed: 1
   stopAction: 2
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -289,7 +301,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -664,7 +676,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 10
+    type: 17
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -695,7 +707,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2.6959088
+      value: 0.84
       mode: 0
       spread: 0
       speed:
