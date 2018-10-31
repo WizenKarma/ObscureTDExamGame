@@ -121,6 +121,8 @@ public class Enemy : MonoBehaviour {
             healthBarControls.Show();
         else
             healthBarControls.Hide();
+
+        this.GetComponent<AstarAI>().speed = Speed.Value;
     }
 
     void generateHealthBar() {

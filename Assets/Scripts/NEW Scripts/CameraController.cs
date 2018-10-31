@@ -32,6 +32,7 @@ public class CameraController : MonoBehaviour
 
     private grid placementGrid;
     public GameObject preview;
+    public GameObject rangePreview;
     private GameObject previewTower;
     public GameObject wall;
     private List<Button> spawnButtons = new List<Button>();
@@ -358,6 +359,9 @@ public class CameraController : MonoBehaviour
             if (hitInfo.collider.tag == "Tower")
             {
                 SelectedTower = hitInfo.collider.gameObject;
+                rangePreview.SetActive(true);
+                rangePreview.transform.position = SelectedTower.transform.position;
+                rangePreview.transform.localScale = Vector3.one * SelectedTower.GetComponent<InGameTower>().range.Value * 2f;
                 RoundInventory.InsertAtFirst(SelectedTower);
                 foreach (Button b in spawnButtons)
                 {
@@ -526,6 +530,8 @@ public class CameraController : MonoBehaviour
 
     void TowerControl()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            rangePreview.SetActive(false);
         ShowPreview(); //shows the little preview tower, must replace with the hologram version
         if (Input.GetKeyDown(KeyCode.C))
             gameManager.currentPhase = PhaseBuilder.PhaseType.Combine;

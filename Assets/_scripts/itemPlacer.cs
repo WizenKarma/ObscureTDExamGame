@@ -30,7 +30,7 @@ public class itemPlacer : MonoBehaviour {
             tilesCreated += 1;
         }
 
-        if (Input.GetMouseButtonDown(1))
+       /* if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hitInfo;
 
@@ -40,7 +40,7 @@ public class itemPlacer : MonoBehaviour {
                 hitInfo.collider.GetComponent<AdaptiveWall>().killWall();
             }
             tilesCreated += 1;
-        }
+        } */
     }
 
     public Vector3 PlaceCubeNear(Vector3 clickPoint)
