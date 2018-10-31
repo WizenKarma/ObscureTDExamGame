@@ -71,6 +71,10 @@ public class MortarProjectile : MonoBehaviour
     void Update()
     {
         waitTimer += Time.deltaTime;
+        if (enemyToAttack == null)
+        {
+            Destruct();
+        }
         if (enemyToAttack != null && waitTimer > floatTime)
         {
             enemyPos = enemyToAttack.position;
@@ -87,10 +91,7 @@ public class MortarProjectile : MonoBehaviour
             targetVec.Normalize();
             rb.velocity = new Vector3(targetVec.x , targetVec.y + 1, targetVec.z ) * Time.deltaTime * particleVelocity;
         }
-        if(enemyToAttack == null)
-        {
-            Destruct();
-        }
+       
 
     }
 

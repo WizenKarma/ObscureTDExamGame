@@ -502,191 +502,11 @@ Prefab:
     - target: {fileID: 224339664719833798, guid: bae2e78476144f74abd5aab42e515359,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-
       value: 0.000005560038
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae2e78476144f74abd5aab42e515359, type: 2}
   m_IsPrefabAsset: 0
-
---- !u!1 &35890216
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 35890217}
-  - component: {fileID: 35890219}
-  - component: {fileID: 35890218}
-  - component: {fileID: 35890220}
-  - component: {fileID: 35890227}
-  - component: {fileID: 35890226}
-  - component: {fileID: 35890225}
-  - component: {fileID: 35890224}
-  - component: {fileID: 35890223}
-  - component: {fileID: 35890222}
-  - component: {fileID: 35890221}
-  m_Layer: 0
-  m_Name: PhaseHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &35890217
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1802964062}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &35890218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: a8d639b1bbd50cb42ba83116d1083c81, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: ac92ca5fecb7a8a4e8d6fce027cb6582, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
---- !u!114 &35890227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35890216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed1247d9fbc23547b322ea0a76a5054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phase: {fileID: 11400000, guid: f9a520b13e6d0aa40bd350cbf85a9c4e, type: 2}
-  phaseType: 0
-  enemySpawnPoint: {fileID: 1106901562}
 --- !u!1 &53840555
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +535,7 @@ Transform:
   m_Children:
   - {fileID: 1811736382}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &53840557
 Animator:
@@ -735,7 +555,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
-
 --- !u!1 &68150514
 GameObject:
   m_ObjectHideFlags: 0
@@ -11156,12 +10975,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1777612862}
   m_Mesh: {fileID: 4300000, guid: 743bd68093255044dbc096b474ba2f77, type: 3}
-
---- !u!4 &1802964062 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4255653284829034, guid: e0bd68eacf2c84048b8c39b49d129644,
-    type: 2}
-  m_PrefabInternal: {fileID: 603342003}
 --- !u!1 &1811736381
 GameObject:
   m_ObjectHideFlags: 0
