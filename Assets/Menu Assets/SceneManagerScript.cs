@@ -10,32 +10,38 @@ public class SceneManagerScript : MonoBehaviour {
 		if (Input.GetKey(KeyCode.Escape))
 		{
             Cursor.visible = true;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
 		}
 	}
 
     public void Menu()
     {
         Cursor.visible = true;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
-    public void StartGame()
+    public void LevelOne()
 	{
         Cursor.visible = true;
         SceneManager.LoadScene(0);
 	}
 
+    public void LevelTwo()
+    {
+        Cursor.visible = true;
+        SceneManager.LoadScene(1);
+    }
+
     public void Controls()
     {
         Cursor.visible = true;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void Credits()
     {
         Cursor.visible = true;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void QuitGame()

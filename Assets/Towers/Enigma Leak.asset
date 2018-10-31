@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Enigma Leak
   m_EditorClassIdentifier: 
-  id: 596bcfb0-e695-411b-adfd-6fe7fab5760a
+  id: 0dcc6b6c-b710-47ae-b2b6-f8e5cbe75956
   TowerName: Enigma Leak
   Damage:
     BaseValue: 8
@@ -36,7 +36,7 @@ MonoBehaviour:
 
     Low Damage
 
-    Damage over time (does not stack)
+    Damage over time
 
     Short Range
 
