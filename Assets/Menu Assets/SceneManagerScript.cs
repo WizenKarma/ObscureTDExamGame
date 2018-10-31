@@ -23,7 +23,7 @@ public class SceneManagerScript : MonoBehaviour {
     public void StartGame()
 	{
         Cursor.visible = true;
-        SceneManager.LoadScene(50);
+        SceneManager.LoadScene(0);
 	}
 
     public void Controls()
