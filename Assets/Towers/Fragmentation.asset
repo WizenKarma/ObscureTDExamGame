@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Fragmentation
   m_EditorClassIdentifier: 
-  id: 5cfa18b2-0354-4e50-ba1f-57eabfc8d6e4
+  id: e0a77fdd-f33c-4bbf-b02d-c9900df779ea
   TowerName: Fragmentation
   Damage:
-    BaseValue: 20
+    BaseValue: 10
   FireRate:
     BaseValue: 1.5
   Range:

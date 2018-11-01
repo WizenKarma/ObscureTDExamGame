@@ -213,6 +213,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: bc34e15d79d012243bae3e640e1dc359, type: 2}
+  damage:
+    BaseValue: 0
+  range:
+    BaseValue: 0
+  fireRate:
+    BaseValue: 0
+  cooldown:
+    BaseValue: 0
+  procChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  targettype: 0
   enemyIsInRange: 0
   bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
   directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,

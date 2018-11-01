@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Termination
   m_EditorClassIdentifier: 
-  id: 7e49a4b614de0fa45869a53c3d7a45a1
+  id: ede1421d-a807-4780-919b-2fec9ca36394
   TowerName: Termination
   Damage:
-    BaseValue: 1
+    BaseValue: 1.5
   FireRate:
-    BaseValue: 1
+    BaseValue: 5
   Range:
-    BaseValue: 1
+    BaseValue: 10
   PowerCooldown:
     BaseValue: 1
   ProcChance:

@@ -315,7 +315,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '- CONTROLS HERE -'
+  m_Text: '- ''WASD'' to move
+
+    - ''LCtrl'' and ''Spacebar'' to move vertically
+
+    - ''Caps lock'' to bring up cursor
+
+    - ''T'' to change perspective
+
+    - 1-5 alphanumberic keys to select tower to build
+
+    - Left Click to view tower
+
+    - Right Click to deselect tower'
 --- !u!222 &307084742
 CanvasRenderer:
   m_ObjectHideFlags: 0

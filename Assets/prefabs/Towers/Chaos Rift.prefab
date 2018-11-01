@@ -93,7 +93,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 7dd4aa0eef7fa884f9d1feb2de2cb937, type: 2}
+  - {fileID: 2100000, guid: ceb06ee83eaa299499ddcf472f8fd174, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,6 +213,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: d208f1e5462fa284ab04f6906ab1f295, type: 2}
+  damage:
+    BaseValue: 0
+  range:
+    BaseValue: 0
+  fireRate:
+    BaseValue: 0
+  cooldown:
+    BaseValue: 0
+  procChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  targettype: 0
   thisEffect: 200
   enemyIsInRange: 0
   directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,

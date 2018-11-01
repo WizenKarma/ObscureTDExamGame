@@ -104,11 +104,11 @@ public class GameManager : MonoBehaviour
             AstarPath.active.Scan();
             isGraphRefreshed = true;
         }
-        if (Input.GetKeyDown(KeyCode.Return)) // removed newPhase for testing purpose rn
-        {
-            ChangeBehaviour();
+        //if (Input.GetKeyDown(KeyCode.Return)) // removed newPhase for testing purpose rn
+        //{
+        //    ChangeBehaviour();
             
-        }
+        //}
 
         roundDisplay.text = "Round : " + round + "/" + numberOfRounds;
         enemiesDisplay.text = "Enemies : " + numberOfEnemiesActive;

@@ -450,6 +450,8 @@ public class CameraController : MonoBehaviour
                 selectTower();
                 ViewTower();
                 SelectedTower.GetComponent<ParticleSystem>().Stop();
+                gameManager.ChangeBehaviour();
+                TowerReset();
             }
             for (int i = 2; i <= 5; ++i)
             {
@@ -475,6 +477,8 @@ public class CameraController : MonoBehaviour
                             spawnButtons[towerAtIndex].interactable = false;
                             spawnButtons[towerAtIndex].GetComponentInChildren<Image>().sprite = null;
                             Inventory.AddTowers(inventoryToUse.SaveTower(tow.gameObject));
+                            gameManager.ChangeBehaviour();
+                            TowerReset();
                         }
                     }
                     ViewTower();
@@ -609,10 +613,15 @@ public class CameraController : MonoBehaviour
                         ViewTower();
                     }
                     SelectCombineTowers();
+                    
                     break;
                 }
             case (PhaseBuilder.PhaseType.Attack):
                 {
+                    if (Input.GetMouseButton(0))
+                    {
+                        ViewTower();
+                    }
                     break;
                 }
         }

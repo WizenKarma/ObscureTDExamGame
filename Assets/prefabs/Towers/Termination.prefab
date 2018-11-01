@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: 95839071350255072}
   - component: {fileID: 199484125483074338}
   - component: {fileID: 198487799657258142}
+  - component: {fileID: 135008632827371086}
+  - component: {fileID: 114774709013416836}
   m_Layer: 12
   m_Name: Termination
   m_TagString: Tower
@@ -62,7 +64,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2d6d8188bd699fd48a1ce3c1a826a3b3, type: 2}
+  - {fileID: 2100000, guid: 2d7655f7a1e7a2c41bf8bbe4ab69f23e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,9 +147,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 7e49a4b614de0fa45869a53c3d7a45a1, type: 2}
+  damage:
+    BaseValue: 0
+  range:
+    BaseValue: 0
+  fireRate:
+    BaseValue: 0
+  cooldown:
+    BaseValue: 0
+  procChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  targettype: 0
   enemyIsInRange: 0
   bulletPref: {fileID: 0}
   directParticleSystem: {fileID: 0}
+--- !u!114 &114774709013416836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146754894129762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d54847d4a9cf1459651095f6e9b9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 11400000, guid: 7e49a4b614de0fa45869a53c3d7a45a1, type: 2}
+  damage:
+    BaseValue: 0
+  range:
+    BaseValue: 0
+  fireRate:
+    BaseValue: 0
+  cooldown:
+    BaseValue: 0
+  procChance:
+    BaseValue: 0
+  targetableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  targettype: 0
+  enemyIsInRange: 0
+  bulletPref: {fileID: 1448787047276838, guid: c46744e7fadf1f742b850694e6178b68, type: 2}
+  muzzleFlashPrefab: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
+    type: 2}
+--- !u!135 &135008632827371086
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146754894129762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.437017
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!198 &198487799657258142
 ParticleSystem:
   m_ObjectHideFlags: 1

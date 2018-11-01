@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Certainty Rift
   m_EditorClassIdentifier: 
-  id: 666853d1-a175-4e15-9a76-d51426afb61e
+  id: ef59b80d-627f-4640-86a2-e85ad59d9147
   TowerName: Certainty Rift
   Damage:
-    BaseValue: 8
+    BaseValue: 8.5
   FireRate:
-    BaseValue: 0.75
+    BaseValue: 0.4
   Range:
     BaseValue: 5
   PowerCooldown:

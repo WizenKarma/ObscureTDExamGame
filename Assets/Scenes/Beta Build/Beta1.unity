@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -503,6 +503,21 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0.000005560038
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471029419988108, guid: bae2e78476144f74abd5aab42e515359,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471029419988108, guid: bae2e78476144f74abd5aab42e515359,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471029419988108, guid: bae2e78476144f74abd5aab42e515359,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.8301887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae2e78476144f74abd5aab42e515359, type: 2}
@@ -5572,6 +5587,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122292337}
   m_Mesh: {fileID: 4300000, guid: 743bd68093255044dbc096b474ba2f77, type: 3}
+--- !u!1 &170947256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170947258}
+  - component: {fileID: 170947257}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &170947257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170947256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e08aa0d0d88654081a6c7c65894091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &170947258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170947256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180229898
 GameObject:
   m_ObjectHideFlags: 0
@@ -9283,9 +9338,6 @@ MonoBehaviour:
     weight: 1
     occurence: 0
   - tower: {fileID: 11400000, guid: 384462f4188dd394ca44a7bb7bc0c368, type: 2}
-    weight: 1
-    occurence: 0
-  - tower: {fileID: 11400000, guid: d34db68c260b63f43964fe79e7ca81a1, type: 2}
     weight: 1
     occurence: 0
   towersToPlaceThisRound: []
