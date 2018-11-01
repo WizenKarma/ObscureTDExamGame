@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65308024034733100}
   - component: {fileID: 114738020195955866}
   m_Layer: 10
-  m_Name: WallV1
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   around: 00000000
-  corner: {fileID: 1830083126771430, guid: 1d04db1fa2e5b8244a346551197220c0, type: 2}
+  corner: {fileID: 100002, guid: d3a39263c5a78d749a7ae5462a71d3ca, type: 3}
   terminate: {fileID: 1529134740537892, guid: 3aeaea6b9eec7d84cb5f7541890a06ec, type: 2}
   junction: {fileID: 1871018541894978, guid: 8358baa89b45ff04e9159026f334114e, type: 2}
   rayLength: 1
