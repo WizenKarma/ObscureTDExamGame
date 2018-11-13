@@ -21,14 +21,13 @@ GameObject:
   - component: {fileID: 4660771144864714}
   - component: {fileID: 33764196174263280}
   - component: {fileID: 23842611181399702}
-  - component: {fileID: 114167410365187106}
   - component: {fileID: 65276274656936554}
   - component: {fileID: 64047486731794610}
   - component: {fileID: 95839071350255072}
   - component: {fileID: 199484125483074338}
   - component: {fileID: 198487799657258142}
   - component: {fileID: 135008632827371086}
-  - component: {fileID: 114774709013416836}
+  - component: {fileID: 114222714591754568}
   m_Layer: 12
   m_Name: Termination
   m_TagString: Tower
@@ -104,7 +103,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 16b3bc7c0c1315548a3826a06f75955b, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -135,7 +134,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114167410365187106
+--- !u!114 &114222714591754568
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146754894129762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d17b0b929ea574d88a0de0bf18b52c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ad3fa9a6f9c3be498895e797e2305af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 7e49a4b614de0fa45869a53c3d7a45a1, type: 2}
@@ -157,43 +156,18 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
   targetableLayers:
     serializedVersion: 2
     m_Bits: 0
   targettype: 0
   enemyIsInRange: 0
-  bulletPref: {fileID: 0}
+  bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
+  CleaveRange: 2
+  CleavePercent: 30
   directParticleSystem: {fileID: 0}
---- !u!114 &114774709013416836
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1146754894129762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d54847d4a9cf1459651095f6e9b9e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower: {fileID: 11400000, guid: 7e49a4b614de0fa45869a53c3d7a45a1, type: 2}
-  damage:
-    BaseValue: 0
-  range:
-    BaseValue: 0
-  fireRate:
-    BaseValue: 0
-  cooldown:
-    BaseValue: 0
-  procChance:
-    BaseValue: 0
-  targetableLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  targettype: 0
-  enemyIsInRange: 0
-  bulletPref: {fileID: 1448787047276838, guid: c46744e7fadf1f742b850694e6178b68, type: 2}
-  muzzleFlashPrefab: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
-    type: 2}
+  ProjectileSpeed: 100
 --- !u!135 &135008632827371086
 SphereCollider:
   m_ObjectHideFlags: 1

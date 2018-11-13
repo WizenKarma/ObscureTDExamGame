@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         phases[0].enabled = true;
         GameManagerStateMachine.ChangeState(phases[0]);
         currentPhase = GameManagerStateMachine.ReturnCurrentState();
-        Debug.Log(GameManagerStateMachine.ReturnCurrentState());
+        //Debug.Log(GameManagerStateMachine.ReturnCurrentState());
         
     }
 
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
     public void ChangeBehaviour()
     {
         isGraphRefreshed = false;
-        Debug.Log(GameManagerStateMachine.ReturnCurrentState());
+        //Debug.Log(GameManagerStateMachine.ReturnCurrentState());
         if (counter == phases.Length)
         {
             phases[lagCounter].enabled = false;

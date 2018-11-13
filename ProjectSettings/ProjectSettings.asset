@@ -656,12 +656,16 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 1
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 6f328772-7e06-4e2e-8df4-e6b45f65bc6b
-  projectName: shaders test
-  organizationId: teekz-2836826
+  cloudProjectId: b60f0313-6a53-4321-90b7-041d123bd6a9
+  projectName: Plasmic Bastion
+  organizationId: keithwit
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

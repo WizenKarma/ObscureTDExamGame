@@ -26,8 +26,8 @@ GameObject:
   - component: {fileID: 95216252311362684}
   - component: {fileID: 199288656087013386}
   - component: {fileID: 198162107889576982}
-  - component: {fileID: 114905601255936720}
   - component: {fileID: 135232031496598226}
+  - component: {fileID: 114965247571020960}
   m_Layer: 12
   m_Name: Reality Stabilizer
   m_TagString: Tower
@@ -35,6 +35,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1847581044570450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4609785880190654}
+  m_Layer: 12
+  m_Name: BarrelEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4609785880190654
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847581044570450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.711, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4660771144864714}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4660771144864714
 Transform:
   m_ObjectHideFlags: 1
@@ -44,7 +72,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4609785880190654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,7 +132,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: a28d79306c70c094fa99a9e3effce8ed, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -134,7 +163,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114905601255936720
+--- !u!114 &114965247571020960
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146754894129762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48402f663c32a274ba3c989291783cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: b7ef88d65403c3847b545ee62e86f67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 384462f4188dd394ca44a7bb7bc0c368, type: 2}
@@ -156,12 +185,16 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
+  projectileSpeed: 300
   targetableLayers:
     serializedVersion: 2
     m_Bits: 0
   targettype: 0
   enemyIsInRange: 0
-  thisSlowType: 100
+  bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
+  directParticleSystem: {fileID: 0}
 --- !u!135 &135232031496598226
 SphereCollider:
   m_ObjectHideFlags: 1

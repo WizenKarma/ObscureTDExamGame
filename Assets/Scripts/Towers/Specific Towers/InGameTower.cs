@@ -12,6 +12,9 @@ public class InGameTower : MonoBehaviour {
     public TowerStats fireRate;
     public TowerStats cooldown;
     public TowerStats procChance;
+    public TowerStats special;
+
+    public float projectileSpeed;
     public LayerMask targetableLayers;
     public Tower.TargetType targettype;
     List<Combiner> possibleRecipes = new List<Combiner>();
@@ -19,12 +22,14 @@ public class InGameTower : MonoBehaviour {
     private void Awake()
     {
         tower.TargetTower = this.gameObject;
+        projectileSpeed = tower.projectileSpeed;
         this.name = tower.name;
         damage = tower.Damage;
         range = tower.Range;
         fireRate = tower.FireRate;
         cooldown = tower.PowerCooldown;
         procChance = tower.ProcChance;
+        special = tower.Special;
         targetableLayers = tower.targetableLayers;
         targettype = tower.targettype;
         if (tower.AestheticMesh)
@@ -41,6 +46,12 @@ public class InGameTower : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
+    public void DoDamage(Enemy enemy, Keith.EnemyStats.StatModType type)
+    {
+        enemy.Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, type, enemy.Armor.Value));
+        enemy.updateHealth();
+    }
+    
     /*void OnDrawGizmosSelected()
  {
      Gizmos.color = Color.black;

@@ -107,5 +107,36 @@ public class CameraMovement : MonoBehaviour
         CameraRotation();
         viewMode();
         move();
+        CheckOutOfBounds();
+    }
+
+    void CheckOutOfBounds()
+    {
+        if (transform.position.x > 25)
+        {
+            transform.position = new Vector3(-1, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x < -2)
+        {
+            transform.position = new Vector3(24, transform.position.y, transform.position.z);
+        }
+        // z boundary
+        if (transform.position.z > -2)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -28);
+        }
+        if (transform.position.z < -29)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        }
+        // y boundary
+        if (transform.position.y < 1)
+        {
+            transform.position = new Vector3(transform.position.x, 19, transform.position.z);
+        }
+        if (transform.position.y > 20)
+        {
+            transform.position = new Vector3(transform.position.x, 3, transform.position.z);
+        }
     }
 }

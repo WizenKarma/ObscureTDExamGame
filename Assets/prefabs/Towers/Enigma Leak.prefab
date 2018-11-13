@@ -23,12 +23,12 @@ GameObject:
   - component: {fileID: 23842611181399702}
   - component: {fileID: 65276274656936554}
   - component: {fileID: 64074062715323152}
-  - component: {fileID: 114442537171327684}
   - component: {fileID: 108402137564110154}
   - component: {fileID: 135295773459569770}
   - component: {fileID: 95442513335930034}
   - component: {fileID: 199743348868652812}
   - component: {fileID: 198338350427061882}
+  - component: {fileID: 114889593986545310}
   m_Layer: 12
   m_Name: Enigma Leak
   m_TagString: Tower
@@ -133,7 +133,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: c6aa115df1e5d6145bd1ac983ea93648, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114442537171327684
+--- !u!114 &114889593986545310
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146754894129762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595670df3eac2b248acd90d95ec178f3, type: 3}
+  m_Script: {fileID: 11500000, guid: c5df9c965a8bb84408c04f8bdadf75fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: 4b9887d37e202d049a35f851af1ffb61, type: 2}
@@ -223,19 +223,20 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
+  projectileSpeed: 0
   targetableLayers:
     serializedVersion: 2
-    m_Bits: 0
-  targettype: 0
-  thereIsIntialDamage: 0
-  timeBetweenDamage: 1
-  damagePerInstance: 10
-  damageDuration: 5
-  numberOfIntervals: 0.5
-  enemyIsInRange: 0
-  directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
-    type: 2}
-  bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
+    m_Bits: 4096
+  targettype: 3
+  thisEffect: 200
+  buffDamage: 1
+  buffSpeed: 1
+  buffRange: 1
+  damageBuff: 100
+  speedBuff: 100
+  rangeBuff: 100
 --- !u!135 &135295773459569770
 SphereCollider:
   m_ObjectHideFlags: 1

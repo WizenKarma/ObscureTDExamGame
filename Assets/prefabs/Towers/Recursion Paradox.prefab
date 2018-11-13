@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 199557897814142486}
   - component: {fileID: 198540103194866724}
   - component: {fileID: 135912120736835862}
-  - component: {fileID: 114791725801841944}
+  - component: {fileID: 114987284212598068}
   m_Layer: 12
   m_Name: Recursion Paradox
   m_TagString: Tower
@@ -132,7 +132,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0807aef1d4e2cf64d8d5475a1286b374, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -163,7 +163,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114791725801841944
+--- !u!114 &114987284212598068
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146754894129762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d54847d4a9cf1459651095f6e9b9e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 080d1b072d585124bbc62a0d429c6570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: d34db68c260b63f43964fe79e7ca81a1, type: 2}
@@ -185,14 +185,19 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
+  projectileSpeed: 0
   targetableLayers:
     serializedVersion: 2
     m_Bits: 0
   targettype: 0
   enemyIsInRange: 0
-  bulletPref: {fileID: 1448787047276838, guid: c46744e7fadf1f742b850694e6178b68, type: 2}
-  muzzleFlashPrefab: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
-    type: 2}
+  bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
+  CleaveRange: 2
+  CleavePercent: 30
+  directParticleSystem: {fileID: 0}
+  ProjectileSpeed: 330
 --- !u!135 &135912120736835862
 SphereCollider:
   m_ObjectHideFlags: 1

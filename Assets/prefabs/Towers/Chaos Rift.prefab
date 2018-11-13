@@ -38,12 +38,12 @@ GameObject:
   - component: {fileID: 23842611181399702}
   - component: {fileID: 65276274656936554}
   - component: {fileID: 64309229659746016}
-  - component: {fileID: 114915154195689024}
   - component: {fileID: 108197307012455602}
   - component: {fileID: 135762025693809632}
   - component: {fileID: 95959233611333932}
   - component: {fileID: 199616338985258492}
   - component: {fileID: 198628661451372160}
+  - component: {fileID: 114616386129539250}
   m_Layer: 12
   m_Name: Chaos Rift
   m_TagString: Tower
@@ -133,7 +133,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 5734a218853183d43a3e15fa1e00bdd0, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114915154195689024
+--- !u!114 &114616386129539250
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146754894129762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41d679a87ab89b468ce8b35413f35d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 595670df3eac2b248acd90d95ec178f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: d208f1e5462fa284ab04f6906ab1f295, type: 2}
@@ -223,11 +223,18 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
+  projectileSpeed: 0
   targetableLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   targettype: 0
-  thisEffect: 200
+  thereIsIntialDamage: 0
+  timeBetweenDamage: 0.5
+  damagePerInstance: 25
+  damageDuration: 5
+  numberOfIntervals: 0
   enemyIsInRange: 0
   directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
     type: 2}

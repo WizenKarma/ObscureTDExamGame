@@ -11,27 +11,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Chaos Rift
   m_EditorClassIdentifier: 
-  id: 5e49de23-699c-4cfa-b797-69b89596abcf
+  id: a6226e96-4fcb-4650-8b18-9d4e5969300c
   TowerName: Chaos Rift
   Damage:
-    BaseValue: 5
+    BaseValue: 10
   FireRate:
-    BaseValue: 1.2
+    BaseValue: 1
   Range:
-    BaseValue: 3
+    BaseValue: 5
   PowerCooldown:
     BaseValue: 0
   ProcChance:
+    BaseValue: 0
+  Special:
     BaseValue: 0
   targetableLayers:
     serializedVersion: 2
     m_Bits: 2048
   prefab: {fileID: 1146754894129762, guid: 710b5e6152002194aa3214a0d6232666, type: 2}
-  targettype: 3
+  targettype: 0
   TargetTower: {fileID: 0}
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 4ff3fedfebc6fe14e92329af9e80b0c2, type: 3}
+  projectileSpeed: 300
   Description: 'Medium Fire Rate
 
     Low Damage

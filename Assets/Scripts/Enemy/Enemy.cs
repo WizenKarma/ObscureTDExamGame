@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Keith.EnemyStats;
@@ -10,6 +9,17 @@ public class Enemy : MonoBehaviour {
     public EnemyStats Speed;
     public EnemyStats Range;
     public EnemyStats Health;
+    public EnemyStats Armor;
+
+    public float healthForDebug;
+    public float speedForDebug;
+
+    public Shader SpawnShader;
+    public Shader NormalShader;
+    public Shader PoisonShader;
+    public Shader BurnShader;
+    public Shader DamageShader;
+
 
     public delegate void HealthChange();
     public event HealthChange OnHealthChange;
@@ -23,7 +33,7 @@ public class Enemy : MonoBehaviour {
 
     #region DoT Variables
     public float damageToTake;
-    public float setDoTInterval;
+    public float setTimeBetweenDamage;
     public float setDoTDuration;
     public float dotIntervalTimer;
     public float setDotIntervals;
@@ -52,6 +62,13 @@ public class Enemy : MonoBehaviour {
     private float moveSpeed = 0f; // this will be a reference to the AstarAI move speed;
     #endregion
 
+    #region STUN_VARS
+    [SerializeField] private bool isStunned;
+    private float stunTimer;
+    private float timeToBeStunned;
+    private float referenceToSpeed;
+    #endregion
+
     bool isDead;
 
     public bool IsDead
@@ -66,7 +83,6 @@ public class Enemy : MonoBehaviour {
             isDead = value;
         }
     }
-
 
     // Use this for initialization
     void Awake () {
@@ -85,10 +101,19 @@ public class Enemy : MonoBehaviour {
         referenceSpeed = Speed.Value;
 	}
 	
-	// Update is called once per frame
 	public void updateHealth () {
-            OnHealthChange();
-	}
+        this.GetComponent<AstarAI>().speed = Speed.Value;
+        OnHealthChange();
+        healthForDebug = Health.Value;
+        speedForDebug = Speed.Value;
+        GetComponent<Renderer>().material.shader = DamageShader;
+        StartCoroutine(returnToDefault());
+    }
+
+    IEnumerator returnToDefault() {
+        yield return new WaitForSeconds(200f);
+        GetComponent<Renderer>().material.shader = NormalShader;
+    }
 
     public Transform firstWaypoint() {
         return waypoints[waypointIndex];
@@ -114,16 +139,24 @@ public class Enemy : MonoBehaviour {
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GetComponent<Renderer>().material.shader = SpawnShader;
+            SetStunParms(5f);
+            returnToDefault();
+        }
         if (flaggedForDoT)
         {
             DoTBehavior();
         }
+        if(isStunned)
+        {
+            StunBehaviour();
+        }
         if (GetComponent<Renderer>().IsVisibleFrom(Camera.main))
             healthBarControls.Show();
         else
-            healthBarControls.Hide();
-
-        
+            healthBarControls.Hide();        
     }
 
     void generateHealthBar() {
@@ -134,6 +167,7 @@ public class Enemy : MonoBehaviour {
     }
 
 
+
     // I think the Enemy should look after itself if is it DoTed
     #region DoT Functions
     public void SetDoTParms(float damage, float dotDuration, float dotInterval, float numberOfIntervals)
@@ -141,17 +175,18 @@ public class Enemy : MonoBehaviour {
         flaggedForDoT = true;
         damageToTake = damage;
         setDoTDuration = dotDuration;
-        setDoTInterval = dotInterval;
+        setTimeBetweenDamage = dotInterval;
         maxNumberOfIntervals = numberOfIntervals;
+        GetComponent<Renderer>().material.shader = PoisonShader;
     }
 
     void DoTBehavior()
     {
         dotIntervalTimer += Time.deltaTime;
 
-        if (numberOfIntervals < maxNumberOfIntervals)
+        if (numberOfIntervals <= maxNumberOfIntervals)
         {
-            if (dotIntervalTimer > setDoTInterval)
+            if (dotIntervalTimer > setTimeBetweenDamage)
             {
                 TakeDoTDamage();
             }
@@ -162,8 +197,9 @@ public class Enemy : MonoBehaviour {
             flaggedForDoT = false;
             dotIntervalTimer = 0f;
             setDotIntervals = 0f;
-            setDoTInterval = 0f;
+            setTimeBetweenDamage = 0f;
             maxNumberOfIntervals = 0f;
+            GetComponent<Renderer>().material.shader = NormalShader;
         }
     }
 
@@ -202,6 +238,30 @@ public class Enemy : MonoBehaviour {
         isSlowed = false;
         slowSpeed = 0f;
         GetComponent<AstarAI>().speed = Speed.Value; // here we want to reset the speed of the enemy since its out of range of effect
+    }
+    #endregion
+
+    #region STUN_FUNCTIONS
+    public void SetStunParms(float stunTime)
+    {
+        timeToBeStunned = stunTime;
+        isStunned = true;
+        referenceToSpeed = GetComponent<AstarAI>().speed; // reference to speed, this should be affected by the other stats like slow hopefully.
+        Speed.AddModifier(new StatModifier(-referenceToSpeed, StatModType.Flat));
+        GetComponent<AstarAI>().speed = Speed.Value;
+    }
+
+    private void StunBehaviour()
+    {
+        stunTimer += Time.deltaTime;
+        if(stunTimer > timeToBeStunned)
+        {
+            // reset
+            Speed.AddModifier(new StatModifier(referenceToSpeed, StatModType.Flat));
+            stunTimer = 0f;
+            GetComponent<AstarAI>().speed = Speed.Value;
+            isStunned = false;           
+        }
     }
     #endregion
 }

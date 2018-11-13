@@ -37,7 +37,9 @@ namespace Keith.EnemyStats {
 
         public virtual void AddModifier(StatModifier mod) {
             isDirty = true;
-            statModifiers.Add(mod);
+            //if (mod.Mod != 0f)
+            StatModifier newMod = new StatModifier(mod.Value*(1-mod.Mod), mod.Type);
+            statModifiers.Add(newMod);
             statModifiers.Sort(CompareModifierOrder);
         }
 
@@ -48,11 +50,11 @@ namespace Keith.EnemyStats {
                 return 1;
             return 0; // if (a.Order == b.Order)
         }
+
         public virtual bool RemoveModifier(StatModifier mod) {
             if (statModifiers.Remove(mod)) {
                 isDirty = true;
                 return isDirty;
-            
             }
             return false;
         }

@@ -111,20 +111,19 @@ public class DoTTower : InGameTower
             {
                 //if (c.gameObject.GetComponent<Enemy>().FlaggedForDoT != true)
                 //{
-                    if (thereIsIntialDamage)
-                    {
-                        c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-intialDamage, Keith.EnemyStats.StatModType.Flat));
-                        print("did intial damage");
-                    }
+                if (thereIsIntialDamage)
+                {
+                    c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-intialDamage, Keith.EnemyStats.StatModType.Flat));
+                    // print("did intial damage");
+                }
 
-                    ParticleSystem muzzleFlash = Instantiate(directParticleSystem, barrelEnd.position, Quaternion.identity) as ParticleSystem;
-                    GameObject bullet = Instantiate(bulletPref, barrelEnd.position, Quaternion.identity) as GameObject;
-                    bullet.GetComponent<ProjectileParticle>().setParms(c, 100f);
+                //ParticleSystem muzzleFlash = Instantiate(directParticleSystem, barrelEnd.position, Quaternion.identity) as ParticleSystem;
+                GameObject bullet = Instantiate(bulletPref, barrelEnd.position, Quaternion.identity) as GameObject;
+                bullet.GetComponent<ProjectileParticle>().setParms(c, projectileSpeed);
 
-                    c.gameObject.GetComponent<Enemy>().SetDoTParms(damagePerInstance,damageDuration, timeBetweenDamage,numberOfIntervals);
-
-                    c.gameObject.GetComponent<Enemy>().updateHealth();
-                    print("Marked for DoT");
+                bullet.GetComponent<ProjectileParticle>().projectileDelegate = causeDamage;
+              
+                  //  print("Marked for DoT");
                 //}
                 //else
                 //{
@@ -134,6 +133,11 @@ public class DoTTower : InGameTower
         }
        
         attackTimer = 0f;
+    }
+    void causeDamage(Collider c)
+    {
+        c.gameObject.GetComponent<Enemy>().SetDoTParms(damagePerInstance, damageDuration, timeBetweenDamage, numberOfIntervals);
+        c.gameObject.GetComponent<Enemy>().updateHealth();
     }
 
 }

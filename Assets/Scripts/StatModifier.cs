@@ -12,18 +12,21 @@
         public readonly StatModType Type;
         public readonly int Order;
         public readonly object Source;
+        public readonly float Mod;
 
-        public StatModifier(float value, StatModType type, int order, object source)
+        public StatModifier(float value, StatModType type, int order, object source, float mod)
         {
             Value = value;
             Type = type;
             Order = order;
             Source = source;
+            Mod = mod;
         }
 
-        public StatModifier(float value, StatModType type) : this(value, type, (int)type, null) { }
-        public StatModifier(float value, StatModType type, int order) : this(value, type, order, null) { }
-        public StatModifier(float value, StatModType type, object source) : this(value, type, (int)type, source) { }
+        public StatModifier(float value, StatModType type) : this(value, type, (int)type, null, 0f) { }
+        public StatModifier(float value, StatModType type, int order) : this(value, type, order, null, 0f) { }
+        public StatModifier(float value, StatModType type, object source) : this(value, type, (int)type, source, 0f) { }
+        public StatModifier(float value, StatModType type, float mod) : this(value, type, (int)type, null, (float)mod) { }
     }
 }
 

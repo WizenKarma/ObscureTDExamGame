@@ -17,5 +17,5 @@ MonoBehaviour:
   TimeBetweenEnemySpawn: 1
   TimeBetweenWaves: 1
   phaseType: 100
-  EnemyToSpawn: {fileID: 1795785541838174, guid: 14ad357dd33c1064ebba243096870305,
+  EnemyToSpawn: {fileID: 1172441398260090, guid: fcd8d9c54bfa21d4e8640dd556463dea,
     type: 2}

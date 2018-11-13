@@ -29,7 +29,6 @@ public class SlowTower : InGameTower
         rangeSphere.isTrigger = true;
         rangeSphere.radius = this.range.Value;
         slowValue = damage.Value;
-
     }
 	
 	// Update is called once per frame

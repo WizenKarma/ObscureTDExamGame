@@ -15,6 +15,15 @@ public class TowerBuff : InGameTower
     public EffectType thisEffect;
     private float timerVar;
     private bool isSet;
+
+    public bool buffDamage;
+    public bool buffSpeed;
+    public bool buffRange;
+
+    public float damageBuff;
+    public float speedBuff;
+    public float rangeBuff;
+
     SphereCollider rangeSphere;
 
     List<GameObject> buffedTowers = new List<GameObject>();
@@ -28,7 +37,7 @@ public class TowerBuff : InGameTower
     void Start()
     {
         isSet = false;
-      //barrelEnd = transform.Find("BarrelEnd");
+        //barrelEnd = transform.Find("BarrelEnd");
         rangeSphere = GetComponent<SphereCollider>();
         rangeSphere.isTrigger = true;
         rangeSphere.radius = this.range.Value;
@@ -55,7 +64,6 @@ public class TowerBuff : InGameTower
         }
     }
 
-
     // could this be under InGameTowers as an AuxFn for say, a DOT AOE tower or a SLOW AOE tower?
     public void ApplyAoE()
     {
@@ -72,16 +80,21 @@ public class TowerBuff : InGameTower
 
         if (thisEffect == EffectType.Damage)
         {
-            foreach (Collider c in inRange)
+            foreach (Collider c in targets)
             {
-                if (c.gameObject.GetComponent<InGameTower>() as InGameTower && !buffedTowers.Contains(c.gameObject))
-                {
+                //if (c.gameObject.GetComponent<InGameTower>() as InGameTower && !buffedTowers.Contains(c.gameObject))
+                //{
                     //c.gameObject.GetComponent<Enemy>().Health.AddModifier(new Keith.EnemyStats.StatModifier(-damage.Value, Keith.EnemyStats.StatModType.Flat));
-                    c.gameObject.GetComponent<InGameTower>().damage.AddModifier(new Keith.Towers.TowerModifier(damage.Value, Keith.Towers.StatModType.PercentAdd));
+                    if (buffDamage)
+                        c.gameObject.GetComponent<InGameTower>().damage.AddModifier(new Keith.Towers.TowerModifier(damageBuff, Keith.Towers.StatModType.PercentAdd));
+                    if (buffSpeed)
+                        c.gameObject.GetComponent<InGameTower>().damage.AddModifier(new Keith.Towers.TowerModifier(speedBuff, Keith.Towers.StatModType.PercentAdd));
+                    if (buffRange)
+                        c.gameObject.GetComponent<InGameTower>().damage.AddModifier(new Keith.Towers.TowerModifier(rangeBuff, Keith.Towers.StatModType.PercentAdd));
                     //c.gameObject.GetComponent<Enemy>().updateHealth();
                     buffedTowers.Add(c.gameObject);
                     print("Applied Stat Modifier");
-                }
+                //}
             }
         }
     }

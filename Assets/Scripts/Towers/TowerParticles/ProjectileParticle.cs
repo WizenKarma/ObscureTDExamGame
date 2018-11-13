@@ -12,6 +12,8 @@ public class ProjectileParticle : MonoBehaviour
     public Rigidbody pSRB;
     public Vector3 enemyPos;
 
+    public delegate void taskDelegate(Collider c);
+    public taskDelegate projectileDelegate;
 
     public void setParms(Collider enemy, float speed)
     {
@@ -21,7 +23,8 @@ public class ProjectileParticle : MonoBehaviour
 
     private void Start()
     {
-       pSRB = GetComponent<Rigidbody>(); 
+       pSRB = GetComponent<Rigidbody>();
+        
     }
     // Use this for initialization
     void Attack ()
@@ -40,10 +43,18 @@ public class ProjectileParticle : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void doDamage(taskDelegate td)
     {
-        if(collision.gameObject.GetComponent<Enemy>())
-        Die();
+
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject == enemyToAttack.GetComponent<Collider>().gameObject)
+        {
+            projectileDelegate(enemyToAttack.GetComponent<Collider>());
+            Die();
+        }
     }
 
     private void Die()

@@ -41,8 +41,8 @@ GameObject:
   - component: {fileID: 95932558522261108}
   - component: {fileID: 199777500186053426}
   - component: {fileID: 198869959633090436}
-  - component: {fileID: 114407149467995192}
   - component: {fileID: 135878592685728582}
+  - component: {fileID: 114904138658075582}
   m_Layer: 12
   m_Name: Fragmentation
   m_TagString: Tower
@@ -132,7 +132,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d1c70c025aea51248bda9c53f71c7399, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -163,7 +163,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114407149467995192
+--- !u!114 &114904138658075582
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,10 +171,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146754894129762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97cdcbc8b7c4e0549917680abcb9aea9, type: 3}
+  m_Script: {fileID: 11500000, guid: dad03fbbff8d6434eaceb2ae1949e2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 11400000, guid: e65459fea1e287948bad640d4d77fac0, type: 2}
+  tower: {fileID: 11400000, guid: 7e49a4b614de0fa45869a53c3d7a45a1, type: 2}
   damage:
     BaseValue: 0
   range:
@@ -185,18 +185,16 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
   targetableLayers:
     serializedVersion: 2
     m_Bits: 0
   targettype: 0
-  timeBetweenDamage: 2
-  damagePerInstance: 25
-  damageDuration: 5
-  numberOfIntervals: 0
   enemyIsInRange: 0
-  muzzleFlashPrefab: {fileID: 1054392701794614, guid: 41e158c85346b16499bf1c7141140b67,
-    type: 2}
-  slowSpeed: 0.5
+  bulletPref: {fileID: 0}
+  armorBurnPercentage: 0.1
+  directParticleSystem: {fileID: 0}
 --- !u!135 &135878592685728582
 SphereCollider:
   m_ObjectHideFlags: 1

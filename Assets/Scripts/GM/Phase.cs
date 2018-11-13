@@ -84,14 +84,14 @@ public class Phase : MonoBehaviour
             {
                 if (enemyTimer > timeBetweenEnemySpawn)
                 {
-                    Debug.Log("This is wave:" + waveCounter);
+                    //Debug.Log("This is wave:" + waveCounter);
                     SpawnEnemy();
                     waveTimer = 0;
                 }
             }
             else
             {
-                Debug.Log("waiting");
+                //Debug.Log("waiting");
                 
                 newWave = false;
                 
@@ -166,7 +166,7 @@ public class Phase : MonoBehaviour
     public void Enter()
     {
         SetParamaters();
-        Debug.Log("Entering current state:" + this.phaseName);
+        //Debug.Log("Entering current state:" + this.phaseName);
 
         if (phaseType == PhaseBuilder.PhaseType.Build)
         {
@@ -198,7 +198,7 @@ public class Phase : MonoBehaviour
     public void Exit()
     {
         
-        Debug.Log("Leaving current state:" + this.phaseName);
+       // Debug.Log("Leaving current state:" + this.phaseName);
         
     }
 

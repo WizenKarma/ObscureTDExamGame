@@ -7,11 +7,11 @@ public class SceneManagerScript : MonoBehaviour {
 
 	void Update () 
 	{
-		if (Input.GetKey(KeyCode.Escape))
+		/*if (Input.GetKey(KeyCode.Escape))
 		{
             Cursor.visible = true;
             SceneManager.LoadScene("Menu");
-		}
+		}*/
 	}
 
     public void Menu()
@@ -43,9 +43,10 @@ public class SceneManagerScript : MonoBehaviour {
         Cursor.visible = true;
         SceneManager.LoadScene("Credits");
     }
-
+    /*
     public void QuitGame()
 	{
 		Application.Quit();
 	}
+    */
 }

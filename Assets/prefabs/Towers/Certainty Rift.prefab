@@ -133,7 +133,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 2e3230afe32a95046aaf2c2b3973e5e6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5445d911d4498bf4c8328276f83039b5, type: 3}
 --- !u!65 &65276274656936554
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 11400000, guid: bc34e15d79d012243bae3e640e1dc359, type: 2}
   damage:
-    BaseValue: 0
+    BaseValue: 1
   range:
     BaseValue: 0
   fireRate:
@@ -223,12 +223,15 @@ MonoBehaviour:
     BaseValue: 0
   procChance:
     BaseValue: 0
+  special:
+    BaseValue: 0
   targetableLayers:
     serializedVersion: 2
     m_Bits: 0
   targettype: 0
   enemyIsInRange: 0
   bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
+  percentageAddPerHit: 0.05
   directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
     type: 2}
 --- !u!135 &135330332115245556

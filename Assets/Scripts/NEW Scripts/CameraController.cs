@@ -32,6 +32,8 @@ public class CameraController : MonoBehaviour
 
     private grid placementGrid;
     public GameObject preview;
+    public GameObject previewLarge;
+    private GameObject previewHolder;
     public GameObject rangePreview;
     private GameObject previewTower;
     public GameObject wall;
@@ -211,7 +213,7 @@ public class CameraController : MonoBehaviour
         {
             if (hitInfo.collider.tag == "Ground")
             {
-                preview.transform.position = placementGrid.GetNearestPointOnGrid(hitInfo.point) - Vector3.up * 0.45f;
+                preview.transform.position = placementGrid.GetNearestPointOnGrid(hitInfo.point);// - Vector3.up * 0.45f;
                 if (previewTower != null)
                     previewTower.transform.position = placementGrid.GetNearestPointOnGrid(hitInfo.point) + Vector3.up;
             }
@@ -254,7 +256,6 @@ public class CameraController : MonoBehaviour
     {
         if (towersToPlaceThisRound[keyPressed].prefab== null)
         {
-            print("The tower should be empty");
             return null;
         }
 
@@ -294,7 +295,6 @@ public class CameraController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hitInfo, cameraRayLength))
         {
-            print("We hit a " + hitInfo.collider.tag);
             if (hitInfo.collider.tag != "Ground")
                 return false;
         }
@@ -359,6 +359,8 @@ public class CameraController : MonoBehaviour
             if (hitInfo.collider.tag == "Tower")
             {
                 SelectedTower = hitInfo.collider.gameObject;
+                Destroy(previewHolder);
+                previewHolder = Instantiate(previewLarge, hitInfo.collider.transform.position - Vector3.up, Quaternion.identity);
                 rangePreview.SetActive(true);
                 rangePreview.transform.position = SelectedTower.transform.position;
                 rangePreview.transform.localScale = Vector3.one * SelectedTower.GetComponent<InGameTower>().range.Value * 2f;
@@ -535,7 +537,10 @@ public class CameraController : MonoBehaviour
     void TowerControl()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
             rangePreview.SetActive(false);
+            Destroy(previewHolder);
+        }
         ShowPreview(); //shows the little preview tower, must replace with the hologram version
         if (Input.GetKeyDown(KeyCode.C))
             gameManager.currentPhase = PhaseBuilder.PhaseType.Combine;
@@ -546,7 +551,7 @@ public class CameraController : MonoBehaviour
                 {
                     if (!towersDrafted)
                     {
-                        print("You can Draft");
+                        //print("You can Draft");
                         pickRandomTowers(5);
                     }
                     else if (!canBuild)
@@ -561,14 +566,14 @@ public class CameraController : MonoBehaviour
                     {
                         if (Input.GetMouseButtonDown(0))
                         {
-                            if (build(preview.transform.position + Vector3.up, TowerToBuild))
+                            if (build(preview.transform.position + Vector3.up * 0.5f, TowerToBuild))
                             {
                                 if (previewTower != null)
                                 {
                                     Destroy(previewTower);
                                 }
                                 canBuild = false;
-                                towerCounter++; /// Tower counter for GM to change to the COmbine phase /////////////////
+                                towerCounter++; /// Tower counter for GM to change to the COmbine phase ///
                             }
                         }
                         else if (Input.GetMouseButtonDown(1))
@@ -588,7 +593,7 @@ public class CameraController : MonoBehaviour
                     gameManager.newPhase = true; /// prevent premature phase changing
                     if (!combinesRecognized)
                     {
-                        print("combining now");
+                        //print("combining now");
                         foreach (Tower t in RoundInventory.GetAllTowers())
                         {
                             foreach (Combiner c in recipes)

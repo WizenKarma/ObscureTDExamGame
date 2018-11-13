@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e1f7963a33c749806cc9994f56e41, type: 3}
   m_Name: Certainty Rift
   m_EditorClassIdentifier: 
-  id: ef59b80d-627f-4640-86a2-e85ad59d9147
+  id: 331913d0-690b-4c68-95a8-10a22f15731a
   TowerName: Certainty Rift
   Damage:
     BaseValue: 8.5
@@ -23,6 +23,8 @@ MonoBehaviour:
     BaseValue: 1
   ProcChance:
     BaseValue: 0
+  Special:
+    BaseValue: 0
   targetableLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -32,6 +34,7 @@ MonoBehaviour:
   AestheticMesh: {fileID: 0}
   TowerBehavior: {fileID: 0}
   preview: {fileID: 21300000, guid: 7b33bcd3d8fde48418c19ea444942cd5, type: 3}
+  projectileSpeed: 350
   Description: 'Faste Fire Rate
 
     Low Damage

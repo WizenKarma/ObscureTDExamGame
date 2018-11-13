@@ -20,7 +20,6 @@ public class HealthBarController : MonoBehaviour {
     #endregion
     #region PUBLIC_METHODS
 
-
     public void SetHealthBarData(Transform targetTransform, RectTransform healthBarPanel)
     {
         gameManager = FindObjectOfType<GameManager>(); // hey gm i found you
@@ -51,6 +50,7 @@ public class HealthBarController : MonoBehaviour {
      void OnHealthChanged()
     {
         float healthFill = enemy.Health.Value/enemy.MaxHealth.Value;
+        //print(enemy.Health.Value);
         if (healthFill <= 0)
         {
             enemy.GetComponent<CharacterController>().enabled = false; // stop the enemy moving and eventually attacking

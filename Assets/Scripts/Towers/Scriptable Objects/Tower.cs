@@ -18,6 +18,8 @@ public class Tower : ScriptableObject {
     public TowerStats Range;
     public TowerStats PowerCooldown;
     public TowerStats ProcChance;
+    public TowerStats Special;
+
     public LayerMask targetableLayers;
     public GameObject prefab;
     public TargetType targettype;
@@ -25,6 +27,7 @@ public class Tower : ScriptableObject {
     public GameObject AestheticMesh;
     public MonoBehaviour TowerBehavior;
     public Sprite preview;
+    public float projectileSpeed;
 
     [TextAreaAttribute(15,20)]
     public string Description;
