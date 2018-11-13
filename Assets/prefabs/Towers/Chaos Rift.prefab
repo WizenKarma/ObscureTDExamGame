@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 95959233611333932}
   - component: {fileID: 199616338985258492}
   - component: {fileID: 198628661451372160}
+  - component: {fileID: 114983916990842788}
   m_Layer: 12
   m_Name: Chaos Rift
   m_TagString: Tower
@@ -232,6 +233,17 @@ MonoBehaviour:
   directParticleSystem: {fileID: 198979735288990296, guid: bdeeb7100fe821c44992e9d934cd6fa7,
     type: 2}
   bulletPref: {fileID: 1676752871944754, guid: decdf247e36e9764789b23bd81fc2968, type: 2}
+--- !u!114 &114983916990842788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146754894129762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678fa33767bcd9f499c2b90588ee1795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135762025693809632
 SphereCollider:
   m_ObjectHideFlags: 1

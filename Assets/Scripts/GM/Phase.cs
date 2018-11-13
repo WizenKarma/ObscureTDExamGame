@@ -211,6 +211,7 @@ public class Phase : MonoBehaviour
         if (phaseType == PhaseBuilder.PhaseType.Build)
         {
             BuildStuff();
+            
         }
     }
 }
