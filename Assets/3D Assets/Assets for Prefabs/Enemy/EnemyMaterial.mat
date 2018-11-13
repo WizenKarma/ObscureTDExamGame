@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: EnemyMaterial
-  m_Shader: {fileID: 4800000, guid: b90e1f768472e064d8b056c8e0d19564, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2831d95a60fe4e748b4d7c5cfd61cd46, type: 3}
   m_ShaderKeywords: _EMISSION _NORMALMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -133,7 +133,7 @@ Material:
     - Vector1_5457224: 0.5
     - Vector1_5CAFC23F: 1
     - Vector1_6665F435: 0.5
-    - Vector1_9BC0DD9A: 5
+    - Vector1_9BC0DD9A: 5.67
     - Vector1_BCC976D5: -0.5
     - Vector1_CC2C2991: 0
     - Vector1_FC6ED72E: 1
